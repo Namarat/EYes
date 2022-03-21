@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="web/css/accounts.css">
-    <title>EY(ES) Chile – Cuentas</title>
+    <title th:text="#{loan.title}">EY(ES) Chile – Cuentas</title>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
         <a class="navbar-brand" href="#">
             <img src="web/img/ojo.jpg" alt="icono" width="45" height="">
         </a>
-        <a class="navbar-brand" href="#">EY.ES</a>
+        <a class="navbar-brand" href="#" th:text="#{loan.title2}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -34,16 +34,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/index.html">Cierre de sesión</a>
+                    <a class="nav-link active" href="/index.html" th:text="#{loan.logout}">Cierre de sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/(lang=es)}">Español</a>
+                    <a class="nav-link active" th:href="@{/loan-application.html(lang=es)}" th:text="#{loan.spanish}"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active"><img src="/web/img/españa.png" alt="" width="40px"></a>
+                    <a class="nav-link active"><img src="/web/img/españa.png" alt="" width="40px" ></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/(lang=en)}">English</a>
+                    <a class="nav-link active" th:href="@{/loan-application.html(lang=en)}" th:text="#{loan.english}"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/UK.png" alt="" width="30px"></a>
@@ -63,7 +63,7 @@
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white"style="height: 435px;">
                     <a href="/"
             class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <span class="fs-5 d-none d-sm-inline">Mi Banco</span>
+            <span class="fs-5 d-none d-sm-inline" th:text="#{loan.bank}"></span>
             </a>
 
 
@@ -72,32 +72,32 @@
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                     <a href="/accounts.html" class="nav-link link-dark">
-                        <i class="bi bi-inboxes"></i>
-                        Cuentas
+                        <i class="bi bi-inboxes" th:text="#{loan.accounts}"></i>
+
                     </a>
                 </li>
                 <li>
                     <a href="/cards.html" class="nav-link link-dark">
-                        <i class="bi bi-credit-card"></i>
-                        Tarjetas
+                        <i class="bi bi-credit-card" th:text="#{loan.cards}"></i>
+
                     </a>
                 </li>
                 <li>
                     <a href="/transfers.html" class="nav-link link-dark">
-                        <i class="bi bi-box-arrow-right"></i>
-                        Transferencias
+                        <i class="bi bi-box-arrow-right" th:text="#{loan.transfers}"></i>
+
                     </a>
                 </li>
                 <li>
                     <a href="/loan-application.html" class="nav-link active">
-                        <i class="bi bi-cash"></i>
-                        Préstamos
+                        <i class="bi bi-cash" th:text="#{loan.loan}"></i>
+
                     </a>
                 </li>
                 <li>
                     <a href="/loan-application.html" class="nav-link link-dark">
-                        <i class="bi bi-cash"></i>
-                        Inversiones
+                        <i class="bi bi-cash" th:text="#{loan.investments}"></i>
+
                     </a>
                 </li>
             </ul>
@@ -114,8 +114,8 @@
 
             <div class="row mt-3">
                 <div class="col">
-                    <h2 class="display-6">Préstamos</h2>
-                    <span class="small" v-if="clientInfo.loan != null && clientInfo.loans.length <= 0">No loans</span>
+                    <h2 class="display-6" th:text="#{loan.loan}"></h2>
+                    <span class="small" v-if="clientInfo.loan != null && clientInfo.loans.length <= 0" th:text="#{loan.noloans}"></span>
                 </div>
             </div>
             <div class="row">
@@ -123,7 +123,9 @@
                     <div class="card border-0 loan">
                         <div class="card-body">
                             <h5 class="card-title">{{ loan.name }}</h5>
-                            <p class="card-text"> payments: {{ loan.payments}}</p>
+                            <p class="card-text" th:text="#{loan.payments}"></p>
+                            <p class="text-center">{{ loan.payments}}</p>
+                            <p class="card-text" th:text="#{loan.amount}"></p>
                             <p class="text-center lead account-balance"> ${{ loan.amount }} </p>
                         </div>
                     </div>
@@ -133,8 +135,6 @@
     </div>
 </div>
 </div>
-
-
 <footer id="Footer" class="text-center text-white py-2  pt-5">
 
     <div class="container">
@@ -146,11 +146,11 @@
                 </a>
             </div>
             <div class="col-12 col-sm-6">
-                <a class="active m-2" aria-current="page" href="#">Conocenos</a>
-                <a class="active m-2" href="#">Normas</a>
-                <a class="active m-2" href="#">Filiales</a>
-                <a class="active m-2" href="#">Sitios Relacionados</a>
-                <a class="active m-2" href="#Contacto">Encuéntranos</a>
+                <a class="active m-2" aria-current="page" href="#" th:text="#{loan.about2}"></a>
+                <a class="active m-2" href="#" th:text="#{loan.norm}"></a>
+                <a class="active m-2" href="#" th:text="#{loan.filial}"></a>
+                <a class="active m-2" href="#" th:text="#{loan.rel}"> </a>
+                <a class="active m-2" href="#Contacto" th:text="#{loan.find}"></a>
             </div>
         </div>
 
@@ -190,5 +190,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="/web/js/accounts.js"></script>
 </body>
-
 </html>

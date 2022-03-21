@@ -86,6 +86,9 @@
                                     <div class="g-recaptcha col-sm-5" th:attr="data-sitekey=${@captchaService.getReCaptchaSite()}" data-callback="onReCaptchaSuccess" data-expired-callback="onReCaptchaExpired"></div>
                                     <span id="captchaError" class="alert alert-danger col-sm-4" style="display:none"></span>
                                 </div>
+                                <br/>
+                                <br/>
+                                <br/>
                                 <div class="form-group">
                                     <button type="submit boton" class="form-control btn btn-dark px-3">Ingresar</button>
                                     <a v-on:click="showSignUpToogle" href="#" class="link-secondary"><small>cancel</small></a>

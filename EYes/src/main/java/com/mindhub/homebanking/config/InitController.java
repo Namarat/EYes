@@ -37,14 +37,24 @@ public class InitController {
         return "account";
     }
 */
-    @GetMapping(value= "/account/{id}" )
+
+    /*
+    @GetMapping({ "/account/{id}","/account.html","/account" })
     public String account(@PathVariable Long id, Model model){
 
-model.addAttribute("account", accountRepository.findById(id));
+      //model.addAttribute("account", accountRepository.findById(id));
+      System.out.println("cuenta");
+        return "account";
+    }
+*/
+    //funciona pero no recibe el mensaje
+    @GetMapping({ "/account.html","/account" })
+    public String account( Model model){
+
+        //model.addAttribute("account", accountRepository.findById(id));
         System.out.println("cuenta");
         return "account";
     }
-
 
     @GetMapping({"/login.html"})
     public String login(Model model){

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -16,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="/web/css/cards.css">
-    <title>EY(ES) Chile – Cuentas</title>
+    <title th:text="#{cards.title}"></title>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
         <a class="navbar-brand" href="#">
             <img src="/web/img/ojo.jpg" alt="icono" width="45" height="">
         </a>
-        <a class="navbar-brand" href="#">EY.ES</a>
+        <a class="navbar-brand" href="#" th:text="#{cards.title2}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -34,16 +35,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/index.html">Cierre de sesión</a>
+                    <a class="nav-link active" href="/index.html" th:text="#{cards.logout}"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/(lang=es)}">Español</a>
+                    <a class="nav-link active" th:href="@{/cards.html(lang=es)}" th:text="#{cards.spanish}"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/españa.png" alt="" width="40px"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/(lang=en)}">English</a>
+                    <a class="nav-link active" th:href="@{/cards.html(lang=en)}" th:text="#{cards.english}"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/UK.png" alt="" width="30px"></a>
@@ -63,38 +64,38 @@
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white"style="height: 435px;">
                 <a href="/"
                    class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Mi Banco</span>
+                    <span class="fs-5 d-none d-sm-inline" th:text="#{cards.bank}"></span>
                 </a>
 
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
                         <a href="/accounts.html" class="nav-link link-dark">
-                            <i class="bi bi-inboxes"></i>
-                            Cuentas
+                            <i class="bi bi-inboxes" th:text="#{cards.accounts}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/cards.html" class="nav-link active">
-                            <i class="bi bi-credit-card"></i>
-                            Tarjetas
+                            <i class="bi bi-credit-card" th:text="#{cards.cards}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/transfers.html" class="nav-link link-dark">
-                            <i class="bi bi-box-arrow-right"></i>
-                            Transferencias
+                            <i class="bi bi-box-arrow-right" th:text="#{cards.transfers}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/loan-application.html" class="nav-link link-dark">
-                            <i class="bi bi-cash"></i>
-                            Préstamos
+                            <i class="bi bi-cash" th:text="#{cards.loan}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/invest-application.html" class="nav-link link-dark">
-                            <i class="bi bi-cash"></i>
-                            Inversiones
+                            <i class="bi bi-cash" th:text="#{cards.investments}"></i>
+
                         </a>
                     </li>
                 </ul>
@@ -110,9 +111,9 @@
             </div>
             <div class="row mt-3">
                 <div class="col">
-                    <h2 class="display-6 subtitle">Debit Cards</h2>
-                    <a v-if="clientInfo.cards != null && clientInfo.cards.length < 6" href="create-cards.html" id="create" class="btn btn-sm btn-outline-success">Create</a>
-                    <div v-if="debitCards.length <= 0"><span class="small">No debit cards</span></div>
+                    <h2 class="display-6 subtitle" th:text="#{cards.debitCards}"> </h2>
+                    <a v-if="clientInfo.cards != null && clientInfo.cards.length < 6" href="create-cards.html" id="create" class="btn btn-sm btn-outline-success" th:text="#{cards.create}"></a>
+                    <div v-if="debitCards.length <= 0"><span class="small" th:text="#{cards.noCards}"></span></div>
                 </div>
             </div>
             <div class="row">
@@ -125,11 +126,11 @@
                              src="/web/img/logo_card.png">
                         <p class="plastic-card_numer">{{ card.number}}</p>
                         <div class="plastic-card__space-60">
-                            <span class="plastic-card__label">card holder</span>
+                            <span class="plastic-card__label" th:text="#{cards.cardHolder}">Titular</span>
                             <p class="plastic-card__info">{{ card.cardholder }}</p>
                         </div>
                         <div class="plastic-card__space-25">
-                            <span class="plastic-card__label">Expires</span>
+                            <span class="plastic-card__label" th:text="#{cards.expires}"></span>
                             <p class="plastic-card__info">{{ formatDate(card.thruDate) }}</p>
                         </div>
                     </div>
@@ -151,8 +152,8 @@
             </div>
             <div class="row mt-3">
                 <div class="col">
-                    <h2 class="display-6">Credit Cards</h2>
-                    <span class="small" v-if="creditCards.length <= 0">No credit cards</span>
+                    <h2 class="display-6" th:text="#{cards.creditCards}"></h2>
+                    <span class="small" v-if="creditCards.length <= 0"  th:text="#{cards.noCards2}"></span>
                 </div>
             </div>
             <div class="row">
@@ -165,11 +166,11 @@
                              src="/web/img/logo_card.png">
                         <p class="plastic-card_numer">{{ card.number}}</p>
                         <div class="plastic-card__space-60">
-                            <span class="plastic-card__label">card holder</span>
+                            <span class="plastic-card__label" th:text="#{cards.cardHolder}"></span>
                             <p class="plastic-card__info">{{ card.cardholder }}</p>
                         </div>
                         <div class="plastic-card__space-25">
-                            <span class="plastic-card__label">Expires</span>
+                            <span class="plastic-card__label" th:text="#{cards.expires}"></span>
                             <p class="plastic-card__info">{{ formatDate(card.thruDate) }}</p>
                         </div>
                     </div>
@@ -204,11 +205,11 @@
                 </a>
             </div>
             <div class="col-12 col-sm-6">
-                <a class="active m-2" aria-current="page" href="#">Conocenos</a>
-                <a class="active m-2" href="#">Normas</a>
-                <a class="active m-2" href="#">Filiales</a>
-                <a class="active m-2" href="#">Sitios Relacionados</a>
-                <a class="active m-2" href="#Contacto">Encuéntranos</a>
+                <a class="active m-2" aria-current="page" href="#" th:text="#{cards.about2}"></a>
+                <a class="active m-2" href="#" th:text="#{cards.norm}"></a>
+                <a class="active m-2" href="#" th:text="#{cards.filial}"></a>
+                <a class="active m-2" href="#" th:text="#{cards.rel}"> </a>
+                <a class="active m-2" href="#Contacto" th:text="#{cards.find}"></a>
             </div>
         </div>
 
