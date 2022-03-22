@@ -26,22 +26,23 @@ public class WebAuthorization extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-/*
+
 
         http.authorizeRequests()
-                .antMatchers("/","/index.html","/web/index.html").permitAll()
+                .antMatchers("/","/index.html","/web/index.html","/login.html").permitAll()
                 .antMatchers("/","/index.html","/web/index.html").permitAll()
                 .antMatchers("/web/css/**", "/web/img/**", "/web/js/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/clients").permitAll()
-                .antMatchers("/h2-console/**").permitAll()
+               // .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/**").hasAuthority("CLIENT")
                 .anyRequest().authenticated()
                 .and().formLogin().permitAll();
-*/
+
+/*
         http.authorizeRequests()
                 .antMatchers("/**").permitAll();
 
-
+*/
 
         http.formLogin()
                 .usernameParameter("email")

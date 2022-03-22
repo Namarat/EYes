@@ -1,8 +1,7 @@
 package com.mindhub.homebanking.dtos;
 
-import com.mindhub.homebanking.models.Card;
 import com.mindhub.homebanking.models.Client;
-import com.mindhub.homebanking.validation.ValidEmail;
+import com.mindhub.homebanking.util.validation.ValidEmail;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

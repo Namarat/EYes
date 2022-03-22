@@ -90,7 +90,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/loan-application.html" class="nav-link link-dark">
+                    <a href="/loan.html" class="nav-link link-dark">
                         <i class="bi bi-cash" th:text="#{accounts.loan}"></i>
 
                     </a>
@@ -122,7 +122,7 @@
 
                 <div class="row">
                     <div v-for="account in clientInfo.accounts" class="col-12 col-md-3 mt-2">
-                        <a class="account-link" v-bind:href="'http://localhost:8080/web/account.html?id='+account.id">
+                        <a class="account-link" v-bind:href="'http://localhost:8080/account/'+account.id">
 
                             <div class="card border-0 account">
                                 <div class="card-body">
@@ -134,60 +134,6 @@
                         </a>
                     </div>
                 </div>
-
-                <!--/*@thymesVar id="accounts" type=""*/-->
-             <!---   <div  th:attr="id=${@account.getId()}" th:each="account : ${accounts}" class="col-12 col-md-3 mt-2" th:text="${id}">-->
-
-                    <!-- <a class="account-link" v-bind:href="'http://localhost:8080/account.html?id='+account.id">-->
-                    <!--    <a class="account-link" v-bind:href="'http://localhost:8080/accounts.html'">-->
-
-
-                   <!-- <a th:href="@{/account/} + ${id}" >-->
-
-                       <!-- <a th:href="@{/account(id=6)}">-->
-
-                     <!--   <div class="card border-0 account">
-                            <div class="card-body">
-                                <h5 class="card-title"></h5>
-                                <p class="card-text"> </p>
-                                <p class="text-center lead account-balance">  </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
--->
-            <div class="row">
-                <div v-for="account in clientInfo.accounts" class="col-12 col-md-3 mt-2">
-                    <a class="account-link" th:href="@{/account(id=6)}">
-                        <div class="card border-0 account">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ account.number }}</h5>
-                                <p class="card-text"> {{ formatDate(account.creationDate) }}</p>
-                                <p class="text-center lead account-balance"> ${{ account.balance }} </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-                <!----------------
-                <div class="row">
-                    <div v-for="account in clientInfo.accounts" class="col-12 col-md-3 mt-2">
-                        <a class="account-link" v-bind:href="'http://localhost:8080/web/account.html?id='+account.id">
-                            <div class="card border-0 account">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ account.number }}</h5>
-                                    <p class="card-text"> {{ formatDate(account.creationDate) }}</p>
-                                    <p class="text-center lead account-balance"> ${{ account.balance }} </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                -------->
-
-            </div>
 
  </div>
  </div>

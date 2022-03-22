@@ -1,4 +1,4 @@
-package com.mindhub.homebanking.validation;
+package com.mindhub.homebanking.util.validation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

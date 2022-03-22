@@ -6,10 +6,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 import java.util.Locale;
 
@@ -25,7 +27,16 @@ public class WebConfiguration implements WebMvcConfigurer {
        // messageSource.setCacheSeconds(3600);
         return messageSource;
     }
-
+    //-----try charset utf
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        ThymeleafViewResolver resolver = new ThymeleafViewResolver();        ;
+        resolver.setCharacterEncoding("UTF-8"); // <- this was added
+        resolver.setForceContentType(true); // <- this was added
+        resolver.setContentType("text/html; charset=UTF-8"); // <- this was added
+        registry.viewResolver(resolver);
+    }
+    //-------------
 
     @Bean
     public LocaleResolver localeResolver(){

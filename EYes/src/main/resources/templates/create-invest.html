@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="/web/css/accounts.css">
-    <title>EY(ES) Chile – Aplicación Préstamos</title>
+    <title>EY(ES) Chile – Aplicación Inversiones</title>
 </head>
 
 <body>
@@ -38,13 +38,13 @@
                     <a class="nav-link active" href="/index.html">Cierre de sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/loan-application.html(lang=es)}">Español</a>
+                    <a class="nav-link active" th:href="@{/create-invest.html(lang=es)}">Español</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/españa.png" alt="" width="40px"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/loan-application.html(lang=en)}">English</a>
+                    <a class="nav-link active" th:href="@{/create-invest.html(lang=en)}">English</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/UK.png" alt="" width="30px"></a>
@@ -90,13 +90,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/loan-application.html" class="nav-link active">
+                        <a href="/loan-application.html" class="nav-link link-dark">
                             <i class="bi bi-cash"></i>
                             Préstamos
                         </a>
                     </li>
                     <li>
-                        <a href="/invest-application.html" class="nav-link link-dark">
+                        <a href="/invest-application.html" class="nav-link active">
                             <i class="bi bi-cash"></i>
                             Inversiones
                         </a>
@@ -122,16 +122,17 @@
                     <div class="col offset-md-1">
                         <div class="row mt-3">
                             <div class="col-10">
-                                <h2 class="display-6 subtitle">Aplicación préstamos</h2>
+                                <h2 class="display-6 subtitle">Aplicación inversiones</h2>
                                 <form class="mt-4">
                                     <div class="row">
                                         <div class="col-md-9">
-                                            <label for="type" class="form-label">Tipo de préstamo</label>
-                                            <select id="type" v-model="loanTypeId" v-on:change="changedType" class="form-select" aria-label="Default select example" required>
+                                            <label for="type" class="form-label">Producto de inversión</label>
+                                            <select id="type" v-model="investTypeId" v-on:change="changedType" class="form-select" aria-label="Default select example" required>
                                                 <option value="0">Open this select menu</option>
-                                                <option v-for="loanType in loanTypes" v-bind:value="loanType.id">{{ loanType.name }} | max amount: {{ loanType.maxAmount }}</option>
+                                                <option v-for="investType in investTypes" v-bind:value="investType.id">{{ investType.name }} | max amount: {{ investType.maxAmount }}</option>
                                             </select>
                                         </div>
+                                        <!--
                                         <div class="col">
                                             <label for="payments" class="form-label">Pagos</label>
                                             <select id="payments" v-model="payments" class="form-select" aria-label="Default select example" required>
@@ -139,6 +140,7 @@
                                                 <option v-for="payment in paymentsList" v-bind:value="payment">{{ payment }}</option>
                                             </select>
                                         </div>
+                                        -->
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-5">
@@ -149,13 +151,15 @@
                                             </select>
                                         </div>
                                         <div class="col">
-                                            <label for="amount" class="form-label">Cantidad</label>
+                                            <label for="amount" class="form-label">Monto</label>
                                             <input id="amount" v-model="amount" type="number" class="form-control" placeholder="VIN000554" aria-label="to account">
                                         </div>
+                                        <!--
                                         <div class="col">
                                             <label class="form-label">Cuota</label>
                                             <div><button type="button" v-on:click="checkFees" class="btn btn-sm btn-outline-primary mt-1">Ver cuotas</button></div>
                                         </div>
+                                        -->
                                     </div>
                                     <button type="button" v-on:click="checkApplication" class="btn btn-sm btn-outline-success mt-4">Aplicar</button>
                                 </form>
@@ -169,15 +173,15 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="confirModalLabel">Confirm Loan Application</h5>
+                            <h5 class="modal-title" id="confirModalLabel">Confirm Invest Application</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Loans applications cannot be undone, do you want to continue?
+                            Invest applications cannot be undone, do you want to continue?
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" v-on:click="apply" class="btn btn-sm btn-outline-success">Yes, apply loan</button>
+                            <button type="button" v-on:click="apply" class="btn btn-sm btn-outline-success">Yes, apply invest</button>
                         </div>
                     </div>
                 </div>
@@ -191,7 +195,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            The loan have been applied! <i class="bi bi-check-circle-fill text-success"></i>
+                            The invest have been applied! <i class="bi bi-check-circle-fill text-success"></i>
                         </div>
                         <div class="modal-footer">
                             <button type="button" v-on:click="finish" class="btn btn-sm btn-outline-success" data-bs-dismiss="modal">Ok</button>
@@ -200,18 +204,19 @@
                 </div>
             </div>
             <!-- Modal 3-->
+            <!--
             <div class="modal fade" id="feesModal" tabindex="-1" aria-labelledby="feesModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="feesModalLabel">Loan fees</h5>
+                            <h5 class="modal-title" id="feesModalLabel">invest fees</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             You will pay:
                             <ol class="list-group list-group-numbered">
                                 <li v-for="fee in fees" class="list-group-item">${{ fee.amount }}</li>
-                                <span class="mt-2">Total: ${{ this.totalLoan }}</span>
+                                <span class="mt-2">Total: ${{ this.totalinvest }}</span>
                             </ol>
                         </div>
                         <div class="modal-footer">
@@ -220,7 +225,7 @@
                     </div>
                 </div>
             </div>
-
+            -->
 
         </div>
     </div>
@@ -238,7 +243,7 @@
                 </a>
             </div>
             <div class="col-12 col-sm-6">
-                <a class="active m-2" aria-current="page" href="#">Conocenos</a>
+                <a class="active m-2" aria-current="page" href="#">Conócenos</a>
                 <a class="active m-2" href="#">Normas</a>
                 <a class="active m-2" href="#">Filiales</a>
                 <a class="active m-2" href="#">Sitios Relacionados</a>
@@ -280,7 +285,7 @@
         crossorigin="anonymous"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="/web/js/loan-application.js"></script>
+<script src="/web/js/create-invest.js"></script>
 </body>
 
 </html>
