@@ -18,15 +18,15 @@
     <!---------surveyjs----------------->
 
 
-    <title>Encuesta</title>
+    <title th:text="#{survey.title}"></title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="/web/img/ojo.jpg" alt="icono" width="45" height="">
+            <img src="/web/img/Eyes6.png" alt="icono" width="45" height="">
         </a>
-        <a class="navbar-brand" href="#">EY.ES</a>
+        <a class="navbar-brand" href="#" th:text="#{survey.title2}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -35,16 +35,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/index.html">Cierre de sesión</a>
+                    <a class="nav-link active" href="/index.html" th:text="#{survey.logout}"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/survey.html(lang=es)}">Español</a>
+                    <a class="nav-link active" th:href="@{'/survey/'+ ${client.getId()}(lang=es)}" th:text="#{survey.spanish}"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/españa.png" alt="" width="40px"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/survey.html(lang=en)}">English</a>
+                    <a class="nav-link active" th:href="@{'/survey/'+ ${client.getId()}(lang=en)}" th:text="#{survey.english}"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/UK.png" alt="" width="30px"></a>
@@ -64,7 +64,7 @@
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white"style="height: 435px;">
                 <a href="/"
                    class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Mi Banco</span>
+                    <span class="fs-5 d-none d-sm-inline" th:text="#{survey.bank}"></span>
                 </a>
 
 
@@ -73,39 +73,39 @@
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
                         <a href="/accounts.html" class="nav-link link-dark">
-                            <i class="bi bi-inboxes"></i>
-                            Cuentas
+                            <i class="bi bi-inboxes" th:text="#{survey.accounts}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/cards.html" class="nav-link link-dark">
-                            <i class="bi bi-credit-card"></i>
-                            Tarjetas
+                            <i class="bi bi-credit-card" th:text="#{survey.cards}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/transfers.html" class="nav-link link-dark">
-                            <i class="bi bi-box-arrow-right"></i>
-                            Transferencias
+                            <i class="bi bi-box-arrow-right" th:text="#{survey.transfers}"></i>
+
                         </a>
                     </li>
                     <li>
-                        <a href="/loan.html" class="nav-link active">
-                            <i class="bi bi-cash"></i>
-                            Préstamos
+                        <a href="/loan.html" class="nav-link link-dark">
+                            <i class="bi bi-cash" th:text="#{survey.loan}"></i>
+
                         </a>
                     </li>
                     <li>
-                        <a href="/invest-application.html" class="nav-link link-dark">
-                            <i class="bi bi-cash"></i>
-                            Inversiones
+                        <a href="/invest-application.html" class="nav-link active">
+                            <i class="bi bi-cash" th:text="#{survey.investments}"></i>
+
                         </a>
                     </li>
                 </ul>
 
             </div>
         </div>
-        <section>
+        <section class="con">
             <div>
             <p th:value="${client}"></p>
             <h1 th:text="${client.getFirstName()} +' '+ ${client.getLastName()}" ></h1>
@@ -115,17 +115,13 @@
                 var idclient = [[${client.id}]];
             </script>
 
-
-    <!---------surveyjs----------------->
             <div>
+                <!---------surveyjs----------------->
                     <div id="surveyContainer"></div>
+                <!---------surveyjs----------------->
             </div>
         </section>
-
-
-
-
-
+        <!---------surveyjs----------------->
         <script src="/web/js/survey.js"></script>
 
         <!---------surveyjs----------------->
@@ -135,7 +131,48 @@
 </div>
 
 
+<footer id="Footer" class="text-center text-white py-2  pt-5">
 
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <a class="navbar-brand" href="#">
+                    <img src="/web/img/EYes2.png" alt="icono" width="45" height="">
+                </a>
+            </div>
+            <div class="col-12 col-sm-6">
+                <a class="active m-2" aria-current="page" href="#" th:text="#{survey.about2}"></a>
+                <a class="active m-2" href="#" th:text="#{survey.norm}"></a>
+                <a class="active m-2" href="#" th:text="#{survey.filial}"></a>
+                <a class="active m-2" href="#" th:text="#{survey.rel}"> </a>
+                <a class="active m-2" href="#Contacto" th:text="#{survey.find}"></a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <p>We see beyond</p>
+            </div>
+
+            <div class="col-12 col-sm-6">
+                <a target="_blank" href="https://github.com/">
+                    <i class="fab fa-github-square fa-3x mx-2"></i>
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/">
+                    <i class="fab fa-linkedin fa-3x mx-2"></i>
+                </a>
+                <a target="_blank" href="https://twitter.com/">
+                    <i class="fab fa-twitter-square fa-3x mx-2"></i>
+                </a>
+                <a target="_blank" href="https://www.facebook.com/">
+                    <i class="fab fa-facebook-square fa-3x mx-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
 <!---------surveyjs----------------->
 
 <link href="https://unpkg.com/survey-jquery@1.9.20/modern.css" type="text/css" rel="stylesheet"/>

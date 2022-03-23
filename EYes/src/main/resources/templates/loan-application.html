@@ -17,16 +17,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="/web/css/accounts.css">
-    <title>EY(ES) Chile – Aplicación Préstamos</title>
+    <title th:text="#{loanaplication.title}"></title>
 </head>
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="/web/img/ojo.jpg" alt="icono" width="45" height="">
+            <img src="/web/img/Eye.png" alt="icono" width="45" height="">
         </a>
-        <a class="navbar-brand" href="#">EY.ES</a>
+        <a class="navbar-brand" href="#" th:text="#{loanaplication.title2}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -35,16 +35,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/index.html">Cierre de sesión</a>
+                    <a class="nav-link active" href="/index.html" th:text="#{loanaplication.logout}"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/loan-application.html(lang=es)}">Español</a>
+                    <a class="nav-link active" th:href="@{/loan-application.html(lang=es)}" th:text="#{loanaplication.spanish}"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/españa.png" alt="" width="40px"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/loan-application.html(lang=en)}">English</a>
+                    <a class="nav-link active" th:href="@{/loan-application.html(lang=en)}" th:text="#{loanaplication.english}"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/UK.png" alt="" width="30px"></a>
@@ -64,7 +64,7 @@
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white"style="height: 435px;">
                 <a href="/"
                    class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Mi Banco</span>
+                    <span class="fs-5 d-none d-sm-inline" th:text="#{loanaplication.bank}"></span>
                 </a>
 
 
@@ -73,32 +73,32 @@
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
                         <a href="/accounts.html" class="nav-link link-dark">
-                            <i class="bi bi-inboxes"></i>
-                            Cuentas
+                            <i class="bi bi-inboxes" th:text="#{loanaplication.accounts}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/cards.html" class="nav-link link-dark">
-                            <i class="bi bi-credit-card"></i>
-                            Tarjetas
+                            <i class="bi bi-credit-card" th:text="#{loanaplication.cards}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/transfers.html" class="nav-link link-dark">
-                            <i class="bi bi-box-arrow-right"></i>
-                            Transferencias
+                            <i class="bi bi-box-arrow-right" th:text="#{loanaplication.transfers}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/loan.html" class="nav-link active">
-                            <i class="bi bi-cash"></i>
-                            Préstamos
+                            <i class="bi bi-cash" th:text="#{loanaplication.loan}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/invest-application.html" class="nav-link link-dark">
-                            <i class="bi bi-cash"></i>
-                            Inversiones
+                            <i class="bi bi-cash" th:text="#{loanaplication.investments}"></i>
+
                         </a>
                     </li>
                 </ul>
@@ -122,11 +122,11 @@
                     <div class="col offset-md-1">
                         <div class="row mt-3">
                             <div class="col-10">
-                                <h2 class="display-6 subtitle">Aplicación préstamos</h2>
+                                <h2 class="display-6 subtitle" th:text="#{loanaplication.aplication}"></h2>
                                 <form class="mt-4">
                                     <div class="row">
                                         <div class="col-md-9">
-                                            <label for="type" class="form-label">Tipo de préstamo</label>
+                                            <label for="type" class="form-label" th:text="#{loanaplication.type}"></label>
                                             <select id="type" v-model="loanTypeId" v-on:change="changedType" class="form-select" aria-label="Default select example" required>
                                                 <option value="0">Open this select menu</option>
                                                 <option v-for="loanType in loanTypes" v-bind:value="loanType.id">{{ loanType.name }} | max amount: {{ loanType.maxAmount }}</option>
@@ -135,7 +135,7 @@
                                         <div class="col">
                                             <label for="payments" class="form-label">Pagos</label>
                                             <select id="payments" v-model="payments" class="form-select" aria-label="Default select example" required>
-                                                <option value="0">Open this select menu</option>
+                                                <option value="0" th:text="#{loanaplication.select}"></option>
                                                 <option v-for="payment in paymentsList" v-bind:value="payment">{{ payment }}</option>
                                             </select>
                                         </div>
@@ -144,20 +144,20 @@
                                         <div class="col-md-5">
                                             <label for="to-account" class="form-label">Hacia cuenta</label>
                                             <select id="to-account" v-model="accountToNumber" class="form-select" aria-label="Default select example" required>
-                                                <option value="VIN">Open this select menu</option>
+                                                <option value="VIN" th:text="#{loanaplication.select}"></option>
                                                 <option v-for="account in clientAccounts" v-bind:value="account.number">{{ account.number }}</option>
                                             </select>
                                         </div>
                                         <div class="col">
-                                            <label for="amount" class="form-label">Cantidad</label>
+                                            <label for="amount" class="form-label" th:text="#{loanaplication.amount}"></label>
                                             <input id="amount" v-model="amount" type="number" class="form-control" placeholder="VIN000554" aria-label="to account">
                                         </div>
                                         <div class="col">
-                                            <label class="form-label">Cuota</label>
-                                            <div><button type="button" v-on:click="checkFees" class="btn btn-sm btn-outline-primary mt-1">Ver cuotas</button></div>
+                                            <label class="form-label" th:text="#{loanaplication.pay}"></label>
+                                            <div><button type="button" v-on:click="checkFees" class="btn btn-sm btn-outline-primary mt-1" th:text="#{loanaplication.payment}"></button></div>
                                         </div>
                                     </div>
-                                    <button type="button" v-on:click="checkApplication" class="btn btn-sm btn-outline-success mt-4">Aplicar</button>
+                                    <button type="button" v-on:click="checkApplication" class="btn btn-sm btn-outline-success mt-4" th:text="#{loanaplication.aply}"></button>
                                 </form>
                             </div>
                         </div>
@@ -169,15 +169,15 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="confirModalLabel">Confirm Loan Application</h5>
+                            <h5 class="modal-title" id="confirModalLabel" th:text="#{loanaplication.confirm}"></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            Loans applications cannot be undone, do you want to continue?
+                        <div class="modal-body" th:text="#{loanaplication.questionconfirm}">
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" v-on:click="apply" class="btn btn-sm btn-outline-success">Yes, apply loan</button>
+                            <button type="button" v-on:click="apply" class="btn btn-sm btn-outline-success" th:text="#{loanaplication.confirm2}"></button>
                         </div>
                     </div>
                 </div>
@@ -187,11 +187,11 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="okModalLabel">Application complete!</h5>
+                            <h5 class="modal-title" id="okModalLabel" th:text="#{loanaplication.succes}"></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            The loan have been applied! <i class="bi bi-check-circle-fill text-success"></i>
+                        <div class="modal-body" th:text="#{loanaplication.confirm3}">
+                             <i class="bi bi-check-circle-fill text-success"></i>
                         </div>
                         <div class="modal-footer">
                             <button type="button" v-on:click="finish" class="btn btn-sm btn-outline-success" data-bs-dismiss="modal">Ok</button>
@@ -204,7 +204,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="feesModalLabel">Loan fees</h5>
+                            <h5 class="modal-title" id="feesModalLabel" th:text="#{loanaplication.fees}"></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -234,15 +234,15 @@
         <div class="row">
             <div class="col-12 col-sm-6">
                 <a class="navbar-brand" href="#">
-                    <img src="/web/img/ojo.jpg" alt="icono" width="45" height="">
+                    <img src="/web/img/EYes2.png" alt="icono" width="45" height="">
                 </a>
             </div>
             <div class="col-12 col-sm-6">
-                <a class="active m-2" aria-current="page" href="#">Conocenos</a>
-                <a class="active m-2" href="#">Normas</a>
-                <a class="active m-2" href="#">Filiales</a>
-                <a class="active m-2" href="#">Sitios Relacionados</a>
-                <a class="active m-2" href="#Contacto">Encuéntranos</a>
+                <a class="active m-2" aria-current="page" href="#" th:text="#{loanaplication.about2}"></a>
+                <a class="active m-2" href="#" th:text="#{loanaplication.norm}"></a>
+                <a class="active m-2" href="#" th:text="#{loanaplication.filial}"></a>
+                <a class="active m-2" href="#" th:text="#{loanaplication.rel}"></a>
+                <a class="active m-2" href="#Contacto" th:text="#{loanaplication.find}"></a>
             </div>
         </div>
 
@@ -269,8 +269,6 @@
         </div>
     </div>
 </footer>
-
-
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"

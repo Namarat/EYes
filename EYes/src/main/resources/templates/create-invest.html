@@ -17,16 +17,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="/web/css/accounts.css">
-    <title>EY(ES) Chile – Aplicación Inversiones</title>
+    <title th:text="#{create.invest.color}"></title>
 </head>
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="/web/img/ojo.jpg" alt="icono" width="45" height="">
+            <img src="/web/img/eyesnotfont.jpg" alt="icono" width="45" height="">
         </a>
-        <a class="navbar-brand" href="#">EY.ES</a>
+        <a class="navbar-brand" href="#" th:text="#{create.invest.title2}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -35,16 +35,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/index.html">Cierre de sesión</a>
+                    <a class="nav-link active" href="/index.html" th:text="#{create.invest.logout}"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/create-invest.html(lang=es)}">Español</a>
+                    <a class="nav-link active" th:href="@{/create-invest.html(lang=es)}" th:text="#{create.invest.spanish}"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/españa.png" alt="" width="40px"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/create-invest.html(lang=en)}">English</a>
+                    <a class="nav-link active" th:href="@{/create-invest.html(lang=en)}" th:text="#{create.invest.english}"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/UK.png" alt="" width="30px"></a>
@@ -64,7 +64,7 @@
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white"style="height: 435px;">
                 <a href="/"
                    class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Mi Banco</span>
+                    <span class="fs-5 d-none d-sm-inline" th:text="#{create.invest.bank}"></span>
                 </a>
 
 
@@ -73,32 +73,32 @@
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
                         <a href="/accounts.html" class="nav-link link-dark">
-                            <i class="bi bi-inboxes"></i>
-                            Cuentas
+                            <i class="bi bi-inboxes" th:text="#{create.invest.accounts}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/cards.html" class="nav-link link-dark">
-                            <i class="bi bi-credit-card"></i>
-                            Tarjetas
+                            <i class="bi bi-credit-card" th:text="#{create.invest.cards}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/transfers.html" class="nav-link link-dark">
-                            <i class="bi bi-box-arrow-right"></i>
-                            Transferencias
+                            <i class="bi bi-box-arrow-right" th:text="#{create.invest.transfers}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/loan.html" class="nav-link link-dark">
-                            <i class="bi bi-cash"></i>
-                            Préstamos
+                            <i class="bi bi-cash" th:text="#{create.invest.loan}"></i>
+
                         </a>
                     </li>
                     <li>
                         <a href="/invest-application.html" class="nav-link active">
-                            <i class="bi bi-cash"></i>
-                            Inversiones
+                            <i class="bi bi-cash" th:text="#{create.invest.investments}"></i>
+
                         </a>
                     </li>
                 </ul>
@@ -122,21 +122,21 @@
                     <div class="col offset-md-1">
                         <div class="row mt-3">
                             <div class="col-10">
-                                <h2 class="display-6 subtitle">Aplicación inversiones</h2>
+                                <h2 class="display-6 subtitle" th:text="#{create.invest.aplication}"></h2>
                                 <form class="mt-4">
                                     <div class="row">
                                         <div class="col-md-9">
-                                            <label for="type" class="form-label">Producto de inversión</label>
+                                            <label for="type" class="form-label" th:text="#{create.invest.productinvest}"></label>
                                             <select id="type" v-model="investTypeId" v-on:change="changedType" class="form-select" aria-label="Default select example" required>
-                                                <option value="0">Open this select menu</option>
+                                                <option value="0" th:text="#{create.invest.product}"></option>
                                                 <option v-for="investType in investTypes" v-bind:value="investType.id">{{ investType.name }} </option>
                                             </select>
                                         </div>
 
                                         <div class="col">
-                                            <label for="payments" class="form-label">Pagos</label>
+                                            <label for="payments" class="form-label" th:text="#{create.invest.rent}"></label>
                                             <select id="payments" v-model="plazos" class="form-select" aria-label="Default select example" required>
-                                                <option value="0">Open this select menu</option>
+                                                <option value="0" th:text="#{create.invest.rent2}"></option>
                                                 <option v-for="plazo in plazosList" v-bind:value="plazo">{{ plazo }}</option>
                                             </select>
                                         </div>
@@ -144,14 +144,14 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-5">
-                                            <label for="to-account" class="form-label">Hacia cuenta</label>
+                                            <label for="to-account" class="form-label" th:text="#{create.invest.accounts}"></label>
                                             <select id="to-account" v-model="accountFromNumber" class="form-select" aria-label="Default select example" required>
-                                                <option value="VIN">Open this select menu</option>
+                                                <option value="VIN" th:text="#{create.invest.account}"></option>
                                                 <option v-for="account in clientAccounts" v-bind:value="account.number">{{ account.number }} | Balance: {{ account.balance }}</option>
                                             </select>
                                         </div>
                                         <div class="col">
-                                            <label for="amount" class="form-label">Monto</label>
+                                            <label for="amount" class="form-label" th:text="#{create.invest.amount}"></label>
                                             <input id="amount" v-model="amount" type="number" class="form-control" placeholder="VIN000554" aria-label="to account">
                                         </div>
 
@@ -163,7 +163,7 @@
                                         </div>
 -->
                                     </div>
-                                    <button type="button" v-on:click="checkApplication" class="btn btn-sm btn-outline-success mt-4">Aplicar</button>
+                                    <button type="button" v-on:click="checkApplication" class="btn btn-sm btn-outline-success mt-4" th:text="#{create.invest.aply}"></button>
                                 </form>
                             </div>
                         </div>
@@ -178,12 +178,12 @@
                             <h5 class="modal-title" id="confirModalLabel">Confirm Invest Application</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            Invest applications cannot be undone, do you want to continue?
+                        <div class="modal-body" th:text="#{create.invest.questionconfirm}">
+
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" v-on:click="apply" class="btn btn-sm btn-outline-success">Yes, apply invest</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal" th:text="#{create.invest.cancel}"></button>
+                            <button type="button" v-on:click="apply" class="btn btn-sm btn-outline-success" th:text="#{create.invest.yes}"></button>
                         </div>
                     </div>
                 </div>
@@ -193,7 +193,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="okModalLabel">Application complete!</h5>
+                            <h5 class="modal-title" id="okModalLabel" th:text="#{create.invest.complete}"></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -211,7 +211,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="feesModalLabel">invest fees</h5>
+                            <h5 class="modal-title" id="feesModalLabel" th:text="#{create.invest.fees}"></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -241,15 +241,15 @@
         <div class="row">
             <div class="col-12 col-sm-6">
                 <a class="navbar-brand" href="#">
-                    <img src="/web/img/ojo.jpg" alt="icono" width="45" height="">
+                    <img src="/web/img/Eye.png" alt="icono" width="45" height="">
                 </a>
             </div>
             <div class="col-12 col-sm-6">
-                <a class="active m-2" aria-current="page" href="#">Conócenos</a>
-                <a class="active m-2" href="#">Normas</a>
-                <a class="active m-2" href="#">Filiales</a>
-                <a class="active m-2" href="#">Sitios Relacionados</a>
-                <a class="active m-2" href="#Contacto">Encuéntranos</a>
+                <a class="active m-2" aria-current="page" href="#" th:text="#{create.invest.about2}"></a>
+                <a class="active m-2" href="#" th:text="#{create.invest.norm}"></a>
+                <a class="active m-2" href="#" th:text="#{create.invest.filial}"></a>
+                <a class="active m-2" href="#" th:text="#{create.invest.aply}"rel=""></a>
+                <a class="active m-2" href="#Contacto" th:text="#{create.invest.find}"></a>
             </div>
         </div>
 
