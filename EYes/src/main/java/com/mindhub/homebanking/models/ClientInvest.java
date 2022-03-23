@@ -13,7 +13,8 @@ public class ClientInvest {
     private Long id;
 
     private double amount;
-    private int plazo;
+    private int plazos;
+    private RiskType risk;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
@@ -23,6 +24,8 @@ public class ClientInvest {
     @JoinColumn(name = "invest_id")
     private Invest invest;
 
+    private boolean perfil;
+
     public ClientInvest() {
     }
 
@@ -31,11 +34,13 @@ public class ClientInvest {
         this.invest = invest;
     }
 
-    public ClientInvest(double amount, int plazo, Client client, Invest invest) {
+    public ClientInvest(double amount, int plazos, Client client, Invest invest, boolean perfil) {
         this.amount = amount;
-        this.plazo = plazo;
+        this.plazos = plazos;
         this.client = client;
         this.invest = invest;
+        this.perfil = perfil;
+
     }
 
     public Long getId() {
@@ -54,12 +59,12 @@ public class ClientInvest {
         this.amount = amount;
     }
 
-    public int getPlazo() {
-        return plazo;
+    public int getPlazos() {
+        return plazos;
     }
 
-    public void setPlazo(int plazo) {
-        this.plazo = plazo;
+    public void setPlazos(int plazo) {
+        this.plazos = plazos;
     }
 
     public Client getClient() {
@@ -76,5 +81,32 @@ public class ClientInvest {
 
     public void setInvest(Invest invest) {
         this.invest = invest;
+    }
+
+    public boolean isPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(boolean perfil) {
+        this.perfil = perfil;
+    }
+
+    public RiskType getRisk() {
+        return risk;
+    }
+
+    public void setRisk(RiskType risk) {
+        this.risk = risk;
+    }
+
+    @Override
+    public String toString() {
+        return "ClientInvest{" +
+                "id=" + id +
+                ", amount=" + amount +
+                ", plazos=" + plazos +
+                ", risk=" + risk +
+                ", perfil=" + perfil +
+                '}';
     }
 }

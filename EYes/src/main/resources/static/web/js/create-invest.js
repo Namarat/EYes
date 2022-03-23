@@ -3,7 +3,7 @@ var app = new Vue({
     data:{
         investTypes: [],
         investTypeId: 0,
-        plazo: 0,
+        plazos: 0,
         plazosList: [],
         clientAccounts: [],
         errorToats: null,
@@ -33,7 +33,7 @@ var app = new Vue({
                 this.errorMsg = "You must select a invest type";
                 this.errorToats.show();
             }
-            else if(this.plazo == 0){
+            else if(this.plazos == 0){
                 this.errorMsg = "You must select plazo";
                 this.errorToats.show();
             }
@@ -49,7 +49,7 @@ var app = new Vue({
             }
         },
         apply: function(){
-            axios.post("/api/invests",{investId: this.investTypeId, amount: this.amount, plazo: this.plazo, fromAccountNumber: this.accountFromNumber})
+            axios.post("/api/invests",{investId: this.investTypeId, amount: this.amount, plazos: this.plazos, fromAccountNumber: this.accountFromNumber})
                 .then(response => {
                     this.modal.hide();
                     this.okmodal.show();

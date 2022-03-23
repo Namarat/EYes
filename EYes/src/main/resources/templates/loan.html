@@ -90,7 +90,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/loan-application.html" class="nav-link active">
+                    <a href="/loan.html" class="nav-link active">
                         <i class="bi bi-cash" th:text="#{loan.loan}"></i>
 
                     </a>
@@ -116,7 +116,7 @@
             <div class="row mt-3">
                 <div class="col">
                     <h2 class="display-6" th:text="#{loan.loan}"></h2>
-                    <a href="/loan-application.html" th:text="#{loan.needloan}"></a>
+
                     <span class="small" v-if="clientInfo.loan != null && clientInfo.loans.length <= 0" th:text="#{loan.noloans}"></span>
                     <a class="btn btn-primary mt-3" href="/loan-application.html" role="button" th:text="#{loan.needloan}"></a>
                 </div>

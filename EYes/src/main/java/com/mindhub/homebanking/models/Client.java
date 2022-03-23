@@ -24,6 +24,7 @@ public class Client {
     private String lastName;
     private String email;
     private String password;
+    private PerfilInversionType perfilInversion;
 
     //foreign key  un cliente a muchas cuentas bancarias
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -42,11 +43,12 @@ public class Client {
     //Constructores
 
     //sin el atributo id
-    public Client(String firstName, String lastName, String email, String password) {
+    public Client(String firstName, String lastName, String email, String password, PerfilInversionType perfilInversion) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.perfilInversion = perfilInversion;
     }
 
     //vacio
@@ -55,6 +57,14 @@ public class Client {
 
     //Metodos get y set
 
+
+    public PerfilInversionType getPerfilInversion() {
+        return perfilInversion;
+    }
+
+    public void setPerfilInversion(PerfilInversionType perfilInversion) {
+        this.perfilInversion = perfilInversion;
+    }
 
     public String getPassword() {
         return password;
@@ -151,6 +161,7 @@ public class Client {
 
     //toString
 
+
     @Override
     public String toString() {
         return "Client{" +
@@ -159,6 +170,7 @@ public class Client {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", perfilInversion=" + perfilInversion +
                 '}';
     }
 }

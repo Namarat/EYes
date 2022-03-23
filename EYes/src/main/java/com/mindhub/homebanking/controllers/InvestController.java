@@ -48,7 +48,7 @@ public class InvestController {
                                                 Authentication authentication){
 
         //Verificar si faltan datos en el ingreso
-        if (this.clientRepository.findByEmail(authentication.getName())==null || investApplicationDTO==null|| investApplicationDTO.getAmount() ==0 || investApplicationDTO.getPlazo() == 0 || investApplicationDTO.getInvestId()==0) {
+        if (this.clientRepository.findByEmail(authentication.getName())==null || investApplicationDTO==null|| investApplicationDTO.getAmount() ==0 || investApplicationDTO.getPlazos() == 0 || investApplicationDTO.getInvestId()==0) {
             return new ResponseEntity<>("Missing data", HttpStatus.FORBIDDEN);
         }
         //Buscamos al cliente asociado a la inversion
@@ -70,7 +70,7 @@ public class InvestController {
         }
 
         //Verificar si contienen el plazo en plazos
-        if(!invest.getPlazos().contains(investApplicationDTO.getPlazo())){
+        if(!invest.getPlazos().contains(investApplicationDTO.getPlazos())){
             return new ResponseEntity<>("Dont exist plazo in plazos", HttpStatus.FORBIDDEN);
         }
 
@@ -102,7 +102,7 @@ public class InvestController {
         accountRepository.save(accountOrig);
 
         //Inversion
-        ClientInvest clientInvest1 = new ClientInvest(investMount,investApplicationDTO.getPlazo(), client, invest);
+        ClientInvest clientInvest1 = new ClientInvest(investMount,investApplicationDTO.getPlazos(), client, invest,false);
         clientInvestRepository.save(clientInvest1);
 
         //retornar un ok si la transaccion fue exitosa

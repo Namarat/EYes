@@ -14,4 +14,5 @@ public interface InvestRepository extends JpaRepository<Invest, Long> {
 
     List<Invest> findByRisk(RiskType risk);
     Invest findInvestById(Long id);
+
 }

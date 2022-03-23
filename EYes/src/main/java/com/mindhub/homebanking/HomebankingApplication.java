@@ -1,11 +1,12 @@
 package com.mindhub.homebanking;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.context.request.RequestContextListener;
 
 /*
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.context.request.RequestContextListener;
 import com.mindhub.homebanking.models.*;
 import com.mindhub.homebanking.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 */
 
@@ -22,28 +24,35 @@ public class HomebankingApplication { //implements ApplicationRunner "probando m
 	public static void main(String[] args) {
 		SpringApplication.run(HomebankingApplication.class, args);
 	}
+}
 
+
+/*
 	@Bean
 	public RequestContextListener requestContextListener() {
 		return new RequestContextListener();
 	}
+*/
 
-}
 
-/*
+
+	/*
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
 	@Bean
-	public CommandLineRunner initData(ClientRepository clientRepository, AccountRepository accountRepository,
-									  TransactionRepository transactionRepository, LoanRepository loanRepository,
-									  ClientLoanRepository clientLoanRepository, CardRepository cardRepository) {
+	public CommandLineRunner initData(ClientRepository clientRepository,InvestRepository investRepository, ClientInvestRepository clientInvestRepository) {//ClientRepository clientRepository, AccountRepository accountRepository,TransactionRepository transactionRepository, LoanRepository loanRepository,ClientLoanRepository clientLoanRepository, CardRepository cardRepository
 		return (args) -> {
 
 			//Agregando nuevos clientres
-			Client client1 =new Client("Melba", "Lorenzo","mlorenzo@mail.com",passwordEncoder.encode("123"));
-			Client client2 = new Client("Felipe", "Negrete","fnegrete@mail.com",passwordEncoder.encode("123"));
-			Client client3 = new Client("Gabriel", "Gonzales","gg@mail.com",passwordEncoder.encode("123"));
+			Client client1 =new Client("Juan", "Gutierrez","jgutierrez@mail.com",passwordEncoder.encode("123"));
+			Client client2 = new Client("Julio", "Fuentes","jfuentes@mail.com",passwordEncoder.encode("123"));
+			Client client3 = new Client("Josefina", "Toledo","jtoledo@mail.com",passwordEncoder.encode("123"));
+
+			clientRepository.save(client1);
+			clientRepository.save(client2);
+			clientRepository.save(client3);
+	/*
 			Client client4 = new Client("Nicolas", "Nahuelvil","nnahuelvil@mail.com",passwordEncoder.encode("123"));
 			Client client5 = new Client("Constanza", "Hesse","chesse@mail.com",passwordEncoder.encode("123"));
 
@@ -175,9 +184,58 @@ public class HomebankingApplication { //implements ApplicationRunner "probando m
 			cardRepository.save(card2);
 			cardRepository.save(card3);
 
+*/
+
+
+			// Agregar productos inversion
+
+
+			/*
+			Invest invest1 = new Invest("Fondo Riesgo 1", 3, RiskType.CONSERVADOR, Arrays.asList(1, 2, 3, 4) );
+			Invest invest2 = new Invest("Fondo Riesgo 2", 3, RiskType.AUDAZ,Arrays.asList(1, 2, 3, 4) );
+			Invest invest3 = new Invest("Fondo Riesgo 3", 5, RiskType.CRECIMIENTO,Arrays.asList(1, 2, 3, 4) );
+			Invest invest4 = new Invest("Fondo Riesgo 4", 5, RiskType.DECIDIDO,Arrays.asList(1, 2, 3, 4) );
+			Invest invest5 = new Invest("Fondo Riesgo 5", 7, RiskType.MODERADO,Arrays.asList(1, 2, 3, 4) );
+			Invest invest6 = new Invest("Fondo Riesgo 6", 10, RiskType.ESPECULATIVO,Arrays.asList(1, 2, 3, 4) );
+
+
+
+			//Guardar productos inversion
+			investRepository.save(invest1);
+			investRepository.save(invest2);
+			investRepository.save(invest3);
+			investRepository.save(invest4);
+			investRepository.save(invest5);
+			investRepository.save(invest6);
+
+
+			//Crear inversiones de cliente
+			ClientInvest clientInvest1= new ClientInvest(5000, 2,client1, invest1,true);
+			ClientInvest clientInvest2= new ClientInvest(100000, 1,client2, invest2,true);
+			ClientInvest clientInvest3= new ClientInvest(50000, 3,client3, invest3,true);
+			ClientInvest clientInvest4= new ClientInvest(300000, 3,client1, invest4,true);
+			ClientInvest clientInvest5= new ClientInvest(150000, 2,client2, invest5,true);
+			ClientInvest clientInvest6= new ClientInvest(50000, 1,client3, invest6,true);
+			ClientInvest clientInvest7= new ClientInvest(200000, 4,client1, invest5,true);
+			ClientInvest clientInvest8= new ClientInvest(150000, 3,client2, invest3,true);
+			ClientInvest clientInvest9= new ClientInvest(250000, 4,client3, invest1,true);
+
+			//Guardar inversiones de cliente
+			clientInvestRepository.save(clientInvest1);
+			clientInvestRepository.save(clientInvest2);
+			clientInvestRepository.save(clientInvest3);
+			clientInvestRepository.save(clientInvest4);
+			clientInvestRepository.save(clientInvest5);
+			clientInvestRepository.save(clientInvest6);
+			clientInvestRepository.save(clientInvest7);
+			clientInvestRepository.save(clientInvest8);
+			clientInvestRepository.save(clientInvest9);
+
 		};
 	}
-*/
+
+}
+/*
 //Prueba metodo run
 
 	/*

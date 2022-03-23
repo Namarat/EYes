@@ -6,16 +6,16 @@ public class InvestApplicationDTO {
 
     private Long investId;
     private double amount;
-    private int plazo;
+    private int plazos;
     private String fromAccountNumber;
 
     public InvestApplicationDTO() {
     }
 
-    public InvestApplicationDTO(Long investId, double amount, int plazo, String fromAccountNumber) {
+    public InvestApplicationDTO(Long investId, double amount, int plazos, String fromAccountNumber) {
         this.investId = investId;
         this.amount = amount;
-        this.plazo = plazo;
+        this.plazos = plazos;
         this.fromAccountNumber = fromAccountNumber;
     }
 
@@ -35,12 +35,12 @@ public class InvestApplicationDTO {
         this.amount = amount;
     }
 
-    public int getPlazo() {
-        return plazo;
+    public int getPlazos() {
+        return plazos;
     }
 
-    public void setPlazo(int plazo) {
-        this.plazo = plazo;
+    public void setPlazos(int plazos) {
+        this.plazos = plazos;
     }
 
     public String getFromAccountNumber() {

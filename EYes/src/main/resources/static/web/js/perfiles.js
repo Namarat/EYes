@@ -31,6 +31,6 @@ $(document).on('click', '#bot5', function(){
 
 $(document).on('click', '#bot6', function(){
     document.getElementById("detalle_perfil").innerHTML = "";
-    $('#detalle_perfil').append('<div class="card card-body">El inversionista con perfil especulativo está enfocado en maximizar su inversión, comprendiendo la volatilidad del mercado y soportando periodos largos de rentabilidad negativa</div>');
+    $('#detalle_perfil').append('<div class="card card-body">El inversionista con perfil especulativo está enfocado en maximizar su inversión, comprendiendo la volatilidad del mercado y soportando periodos largos de rentabilidad negativa.</div>');
 
 });

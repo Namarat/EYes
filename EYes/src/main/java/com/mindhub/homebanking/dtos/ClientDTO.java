@@ -1,6 +1,7 @@
 package com.mindhub.homebanking.dtos;
 
 import com.mindhub.homebanking.models.Client;
+import com.mindhub.homebanking.models.PerfilInversionType;
 import com.mindhub.homebanking.util.validation.ValidEmail;
 
 import javax.validation.constraints.NotNull;
@@ -19,8 +20,8 @@ public class ClientDTO {
     @NotNull
     @Size(min = 1, message = "{Size.userDto.firstName}")
     private String lastName;
-
     private String password;
+    private PerfilInversionType perfilInversion;
 
     @ValidEmail
     @NotNull
@@ -29,6 +30,7 @@ public class ClientDTO {
     private Set<AccountDTO> accounts = new HashSet<>();
     private Set<ClientLoanDTO> loans = new HashSet<>();
     private Set<CardDTO> cards = new HashSet<>();
+    private Set<ClientInvestDTO> invests = new HashSet<>();
 
     //Constructores
 
@@ -41,9 +43,11 @@ public class ClientDTO {
         this.firstName = client.getFirstName();
         this.lastName = client.getLastName();
         this.email = client.getEmail();
+        this.perfilInversion= client.getPerfilInversion();
         this.accounts = client.getAccounts().stream().map(AccountDTO::new).collect(Collectors.toSet());
         this.loans = client.getClientLoans().stream().map(ClientLoanDTO::new).collect(Collectors.toSet());
         this.cards = client.getCards().stream().map(CardDTO::new).collect(Collectors.toSet());
+        this.invests = client.getClientInvests().stream().map(ClientInvestDTO::new).collect(Collectors.toSet());
     }
 
     //metodos
@@ -113,6 +117,21 @@ public class ClientDTO {
         this.email = email;
     }
 
+    public Set<ClientInvestDTO> getInvests() {
+        return invests;
+    }
+
+    public PerfilInversionType getPerfilInversion() {
+        return perfilInversion;
+    }
+
+    public void setPerfilInversion(PerfilInversionType perfilInversion) {
+        this.perfilInversion = perfilInversion;
+    }
+
+    public void setInvests(Set<ClientInvestDTO> invests) {
+        this.invests = invests;
+    }
     //toString
 
     @Override

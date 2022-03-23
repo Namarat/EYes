@@ -23,6 +23,7 @@ public class InvestDTO {
         this.rentabilidad = invest.getRentabilidad();
         this.risk = invest.getRisk();
         this.plazos = invest.getPlazos();
+
     }
 
     public Long getId() {

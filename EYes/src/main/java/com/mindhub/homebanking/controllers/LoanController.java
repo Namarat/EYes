@@ -96,7 +96,7 @@ public class LoanController {
                         + "loan approved", LocalDateTime.now(), accountDest));
 
         //Actualizar el balance mas el nuevo prestamo
-        accountDest.setBalance(accountDest.getBalance()+loanCurrent);
+        accountDest.setBalance(accountDest.getBalance()+loanApplicationDTO.getAmount());
         //Guardar la cuenta en la db
         accountRepository.save(accountDest);
 

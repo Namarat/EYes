@@ -49,7 +49,13 @@ public class InitController {
 
         model.addAttribute("account", accountRepository.getById(id));
         model.addAttribute("transactions", transactionRepository.findAllByAccount(accountRepository.getById(id)));
+
         return "account";
+    }
+    @GetMapping({"/survey/{id}"})
+    public String survey(Model model, @PathVariable("id") Long id){
+        model.addAttribute("client", clientRepository.getById(id));
+        return "survey";
     }
 /*
     //funciona pero no recibe el mensaje
@@ -70,10 +76,7 @@ public class InitController {
         return "login.html";
     }
 
-    @GetMapping({"/survey.html"})
-    public String survey(Model model){
-        return "survey.html";
-    }
+
 
     @GetMapping({"/products.html"})
     public String products(Model model){
@@ -89,6 +92,11 @@ public class InitController {
     @GetMapping({"/cards.html"})
     public String cards(Model model){
         return "cards";
+    }
+
+    @GetMapping({"/view-invests.html"})
+    public String viewInvests(Model model){
+        return "view-invests";
     }
 
 

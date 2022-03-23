@@ -1,6 +1,6 @@
 package com.mindhub.homebanking.models;
 
-public enum RiskType {
+public enum PerfilInversionType {
 
     CONSERVADOR,
     MODERADO,

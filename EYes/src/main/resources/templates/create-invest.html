@@ -90,7 +90,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/loan-application.html" class="nav-link link-dark">
+                        <a href="/loan.html" class="nav-link link-dark">
                             <i class="bi bi-cash"></i>
                             Préstamos
                         </a>
@@ -129,37 +129,39 @@
                                             <label for="type" class="form-label">Producto de inversión</label>
                                             <select id="type" v-model="investTypeId" v-on:change="changedType" class="form-select" aria-label="Default select example" required>
                                                 <option value="0">Open this select menu</option>
-                                                <option v-for="investType in investTypes" v-bind:value="investType.id">{{ investType.name }} | max amount: {{ investType.maxAmount }}</option>
+                                                <option v-for="investType in investTypes" v-bind:value="investType.id">{{ investType.name }} </option>
                                             </select>
                                         </div>
-                                        <!--
+
                                         <div class="col">
                                             <label for="payments" class="form-label">Pagos</label>
-                                            <select id="payments" v-model="payments" class="form-select" aria-label="Default select example" required>
+                                            <select id="payments" v-model="plazos" class="form-select" aria-label="Default select example" required>
                                                 <option value="0">Open this select menu</option>
-                                                <option v-for="payment in paymentsList" v-bind:value="payment">{{ payment }}</option>
+                                                <option v-for="plazo in plazosList" v-bind:value="plazo">{{ plazo }}</option>
                                             </select>
                                         </div>
-                                        -->
+
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-5">
                                             <label for="to-account" class="form-label">Hacia cuenta</label>
-                                            <select id="to-account" v-model="accountToNumber" class="form-select" aria-label="Default select example" required>
+                                            <select id="to-account" v-model="accountFromNumber" class="form-select" aria-label="Default select example" required>
                                                 <option value="VIN">Open this select menu</option>
-                                                <option v-for="account in clientAccounts" v-bind:value="account.number">{{ account.number }}</option>
+                                                <option v-for="account in clientAccounts" v-bind:value="account.number">{{ account.number }} | Balance: {{ account.balance }}</option>
                                             </select>
                                         </div>
                                         <div class="col">
                                             <label for="amount" class="form-label">Monto</label>
                                             <input id="amount" v-model="amount" type="number" class="form-control" placeholder="VIN000554" aria-label="to account">
                                         </div>
+
                                         <!--
+
                                         <div class="col">
                                             <label class="form-label">Cuota</label>
                                             <div><button type="button" v-on:click="checkFees" class="btn btn-sm btn-outline-primary mt-1">Ver cuotas</button></div>
                                         </div>
-                                        -->
+-->
                                     </div>
                                     <button type="button" v-on:click="checkApplication" class="btn btn-sm btn-outline-success mt-4">Aplicar</button>
                                 </form>
@@ -204,7 +206,7 @@
                 </div>
             </div>
             <!-- Modal 3-->
-            <!--
+
             <div class="modal fade" id="feesModal" tabindex="-1" aria-labelledby="feesModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -225,7 +227,7 @@
                     </div>
                 </div>
             </div>
-            -->
+
 
         </div>
     </div>

@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-    <link rel="stylesheet" href="/web/css/invest.css">
+    <link rel="stylesheet" href="/web/css/accounts.css">
     <title>EY(ES) Chile – Cuentas</title>
 </head>
 
@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="/web/img/ojo.jpg" alt="icono" width="45" height="">
+            <img src="assets/img/ojo.jpg" alt="icono" width="45" height="">
         </a>
         <a class="navbar-brand" href="#">EY.ES</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -38,13 +38,13 @@
                     <a class="nav-link active" href="/index.html">Cierre de sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/invest-application.html(lang=es)}">Español</a>
+                    <a class="nav-link active" th:href="@{/view-invests.html(lang=es)}">Español</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/españa.png" alt="" width="40px"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/invest-application.html(lang=en)}">English</a>
+                    <a class="nav-link active" th:href="@{/view-invests.html(lang=en)}">English</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"><img src="/web/img/UK.png" alt="" width="30px"></a>
@@ -61,12 +61,15 @@
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 barralat">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white"
-                 style="height: 435px;">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white"style="height: 435px;">
                 <a href="/"
                    class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span class="fs-5 d-none d-sm-inline">Mi Banco</span>
                 </a>
+
+
+
+
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
                         <a href="/accounts.html" class="nav-link link-dark">
@@ -99,86 +102,48 @@
                         </a>
                     </li>
                 </ul>
+
             </div>
         </div>
-
-
-        <section id="perfiles">
-            <div class="col-6">
-
-                <h4 class="text-left mt-2">Conoce los perfiles que hemos pensado para ti:</h4>
-                <hr class="opacity-100">
-            </div>
-            <p>
-                <a class="btn btn-dark amarillo" data-bs-toggle="collapse" href="" role="button"
-                   aria-expanded="false" aria-controls="" id="bot1">Conservador</a>
-                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#perfil2" aria-expanded="false" aria-controls="" id="bot2">Moderado</button>
-                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#perfil3" aria-expanded="false" aria-controls="" id="bot3">En
-                    crecimiento</button>
-                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#perfil4" aria-expanded="false" aria-controls="" id="bot4">Decidido</button>
-                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#perfil5" aria-expanded="false" aria-controls="" id="bot5">Audaz</button>
-                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#perfil6" aria-expanded="false" aria-controls="" id="bot6">Especulativo</button>
-            </p>
-            <div class="row perfiles">
-                <div class="col">
-                    <div class="col-6" id="detalle_perfil"></div>
-                </div>
-            </div>
-
-            <a class="btn btn-primary mt-3" href="/create-invest.html" role="button">Hacer inversiones</a>
-            <a class="btn btn-primary mt-3" href="/products.html" role="button">Ver productos</a>
-            <a class="btn btn-primary mt-3" href="/view-invests.html"role="button">Mis Inversiones</a>
-
-<!---------->
-            <div class="col py-3" id="app">
-                <a class="btn btn-primary mt-3" v-bind:href="'http://localhost:8080/survey/'+clientInfo.id" role="button">Hacer encuesta sobre perfil inversionista</a>
-                <div class="col">
-                    <div class="row">
+            <section>
+                    <div class="col py-3" id="app">
                         <div class="col">
-                            <h1 class="display-1">{{ clientInfo.firstName }} {{ clientInfo.lastName }} </h1>
-                            <h3 class="display-1">{{ clientInfo.perfilInversion }} </h3>
-                        </div>
-                    </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h1 class="display-1">{{ clientInfo.firstName }} {{ clientInfo.lastName }}</h1>
+                                </div>
+                            </div>
 
-                    <!--
-                    <div class="row mt-3">
-                        <div class="col">
-                            <h2 class="display-6 subtitle" th:text="#{accounts.accounts}"></h2>
-                            <button v-if="clientInfo.accounts != null && clientInfo.accounts.length < 3" v-on:click="create" id="create" class="btn btn-sm btn-outline-success" th:text="#{accounts.create}"></button>
-                        </div>
-                    </div>
-                    -->
-                    <!--
-                                    <div class="row">
-                                            <div class="row">
-                                                        <div v-for="account in clientInfo.accounts" class="col-12 col-md-3 mt-2">
-                                                                <div class="card border-0 account">
-                                                                        <div class="card-body">
-                                                                            <h5 class="card-title">{{ account.number }}</h5>
-                                                                            <p class="card-text"> {{ formatDate(account.creationDate) }}</p>
-                                                                            <p class="text-center lead account-balance"> ${{ account.balance }} </p>
-                                                                        </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                            </div>
-
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <h2 class="display-6">Inversiones</h2>
+                                    <span class="small" v-if="clientInfo.invest != null && clientInfo.invests.length <= 0">No invest</span>
+                                    <a class="btn btn-primary mt-3" href="invest-aplication" role="button">Solicitar inversion</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div v-for="invest in clientInfo.invests" class="col-12 col-md-3 mt-2">
+                                    <div class="card border-0 loan">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ invest.name }}</h5>
+                                            <p class="card-text"> Rentabilidad: {{ invest.rentabilidad}}% anual</p>
+                                            <p class="card-text"> Plazos: {{ invest.plazos}} años</p>
+                                            <p class="text-center lead account-balance">Monto: ${{ invest.amount }} </p>
+                                        </div>
                                     </div>
-                                    -->
-                </div>
-            </div>
-        </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+    </div>
 </div>
-</div>
+
 
 <footer id="Footer" class="text-center text-white py-2  pt-5">
 
     <div class="container">
+
         <div class="row">
             <div class="col-12 col-sm-6">
                 <a class="navbar-brand" href="#">
@@ -193,6 +158,7 @@
                 <a class="active m-2" href="#Contacto">Encuéntranos</a>
             </div>
         </div>
+
 
         <div class="row">
             <div class="col-12 col-sm-6">
@@ -227,16 +193,7 @@
         crossorigin="anonymous"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="/web/js/invest.js"></script>
-<script src="/web/js/perfiles.js"></script>
+<script src="/web/js/view-invests.js"></script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
