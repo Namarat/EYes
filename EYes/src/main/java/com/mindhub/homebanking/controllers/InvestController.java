@@ -92,9 +92,8 @@ public class InvestController {
         double investMount= investApplicationDTO.getAmount();
 
         //Crear transaccion con la descripcion invest approved
-        transactionRepository.save(new Transaction(TransactionType.CREDIT, investMount,
-                "Client: " + client.getFirstName() + " " + client.getLastName() +" - "
-                        + "loan approved", LocalDateTime.now(), accountOrig));
+        transactionRepository.save(new Transaction(TransactionType.DEBIT, investMount*-1,
+                "Fondo" + invest.getName() +" " + "Invest approved", LocalDateTime.now(), accountOrig));
 
         //Actualizar el balance menos la nueva inversion
         accountOrig.setBalance(accountOrig.getBalance()-investMount);

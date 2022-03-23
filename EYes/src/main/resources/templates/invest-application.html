@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="/web/img/Eye.png" alt="icono" width="45" height="">
+            <img src="/web/img/Eye.png" alt="icono" width="60" height="45">
         </a>
         <a class="navbar-brand" href="#" th:text="#{invest.title2}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -104,44 +104,14 @@
 
 
         <section id="perfiles">
-            <div class="col-6">
-
-                <h4 class="text-left mt-2"th:text="#{invest.welcome}"></h4>
-                <hr class="opacity-100">
-            </div>
-            <p>
-                <a class="btn btn-dark amarillo" data-bs-toggle="collapse" href="" role="button"
-                   aria-expanded="false" aria-controls="" id="bot1">Conservador</a>
-                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#perfil2" aria-expanded="false" aria-controls="" id="bot2">Moderado</button>
-                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#perfil3" aria-expanded="false" aria-controls="" id="bot3">En
-                    crecimiento</button>
-                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#perfil4" aria-expanded="false" aria-controls="" id="bot4">Decidido</button>
-                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#perfil5" aria-expanded="false" aria-controls="" id="bot5">Audaz</button>
-                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#perfil6" aria-expanded="false" aria-controls="" id="bot6">Especulativo</button>
-            </p>
-            <div class="row perfiles">
-                <div class="col">
-                    <div class="col-6" id="detalle_perfil"></div>
-                </div>
-            </div>
-
-            <a class="btn btn-primary mt-3" href="/create-invest.html" role="button" th:text="#{invest.make}"></a>
-            <a class="btn btn-primary mt-3" href="/products.html" role="button" th:text="#{invest.seeproduct}"></a>
-            <a class="btn btn-primary mt-3" href="/view-invests.html"role="button" th:text="#{invest.myinvest}"></a>
-
-<!---------->
             <div class="col py-3" id="app">
-                <a class="btn btn-primary mt-3" v-bind:href="'http://localhost:8080/survey/'+clientInfo.id" role="button" th:text="#{invest.survey}"></a>
                 <div class="col">
                     <div class="row">
                         <div class="col">
                             <h1 class="display-1">{{ clientInfo.firstName }} {{ clientInfo.lastName }} </h1>
-                            <h3 class="display-1">{{ clientInfo.perfilInversion }} </h3>
+                            <h3 class="">{{ clientInfo.perfilInversion }} </h3>
+                            <a class="btn btn-primary mt-3" v-bind:href="'http://localhost:8080/survey/'+clientInfo.id" role="button" th:text="#{invest.survey}"></a>
+
                         </div>
                     </div>
 
@@ -172,8 +142,40 @@
                                     -->
                 </div>
             </div>
+            <div class="col-6">
+
+                <h4 class="text-left mt-2"th:text="#{invest.welcome}"></h4>
+                <hr class="opacity-100">
+            </div>
+            <p>
+                <a class="btn btn-dark amarillo" data-bs-toggle="collapse" href="" role="button"
+                   aria-expanded="false" aria-controls="" id="bot1">Conservador</a>
+                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#perfil2" aria-expanded="false" aria-controls="" id="bot2">Moderado</button>
+                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#perfil3" aria-expanded="false" aria-controls="" id="bot3">En
+                    crecimiento</button>
+                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#perfil4" aria-expanded="false" aria-controls="" id="bot4">Decidido</button>
+                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#perfil5" aria-expanded="false" aria-controls="" id="bot5">Audaz</button>
+                <button class="btn btn-dark amarillo" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#perfil6" aria-expanded="false" aria-controls="" id="bot6">Especulativo</button>
+            </p>
+            <div class="row perfiles">
+                <div class="col">
+                    <div class="col-6" id="detalle_perfil"></div>
+                </div>
+            </div>
+
+            <a class="btn btn-primary mt-3" href="/create-invest.html" role="button" th:text="#{invest.make}"></a>
+            <a class="btn btn-primary mt-3" href="/products.html" role="button" th:text="#{invest.seeproduct}"></a>
+            <a class="btn btn-primary mt-3" href="/view-invests.html"role="button" th:text="#{invest.myinvest}"></a>
+
+            <!---------->
+
         </section>
-</div>
+    </div>
 </div>
 
 <footer id="Footer" class="text-center text-white py-2  pt-5">
@@ -182,7 +184,7 @@
         <div class="row">
             <div class="col-12 col-sm-6">
                 <a class="navbar-brand" href="#">
-                    <img src="/web/img/EYes2.png" alt="icono" width="45" height="">
+                    <img src="/web/img/EYes2.png" alt="icono" width="130" height="">
                 </a>
             </div>
             <div class="col-12 col-sm-6">
@@ -232,6 +234,14 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
 
 
 

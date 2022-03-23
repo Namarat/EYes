@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="/web/img/Eye.png" alt="icono" width="45" height="">
+            <img src="/web/img/Eye.png" alt="icono" width="60" height="45">
         </a>
         <a class="navbar-brand" href="#" th:text="#{transfers.title2}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -106,6 +106,7 @@
             </div>
         </div>
         <div class="col py-3" id="app">
+
             <div class="toast-container position-absolute p-3 top-0 end-0" id="toastPlacement">
                 <div id="danger-toast" data-bs-delay="2000" class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
@@ -164,7 +165,7 @@
                                             <input id="description" v-model="description" type="text" class="form-control" placeholder="Rent payment" aria-label="to account">
                                         </div>
                                     </div>
-                                    <button type="button" v-on:click="checkTransfer" class="btn btn-sm btn-outline-success mt-4" th:text="#{transfers.transfer}"></button>
+                                    <button type="button" v-on:click="checkTransfer" class="btn btn-primary mt-4" th:text="#{transfers.transfer}"></button>
                                 </form>
                             </div>
                         </div>
@@ -198,7 +199,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body" th:text="#{transfers.confirm3}">
-                                                       <i class="bi bi-check-circle-fill text-success"></i>
+                            <i class="bi bi-check-circle-fill text-success"></i>
                         </div>
                         <div class="modal-footer">
                             <button type="button" v-on:click="finish" class="btn btn-sm btn-outline-success" data-bs-dismiss="modal">Ok</button>
@@ -223,7 +224,7 @@
         <div class="row">
             <div class="col-12 col-sm-6">
                 <a class="navbar-brand" href="#">
-                    <img src="/web/img/EYes2.png" alt="icono" width="45" height="">
+                    <img src="/web/img/EYes2.png" alt="icono" width="130" height="">
                 </a>
             </div>
             <div class="col-12 col-sm-6">
@@ -272,3 +273,4 @@
 <script src="/web/js/transfers.js"></script>
 </body>
 </html>
+

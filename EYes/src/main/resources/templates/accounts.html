@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="/web/img/Eye.png" alt="icono" width="45" height="">
+            <img src="/web/img/Eye.png" alt="icono" width="60" height="45">
         </a>
         <a class="navbar-brand" href="#" th:text="#{accounts.title2}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -51,7 +51,7 @@
                 </li>
             </ul>
 
-            </div>
+        </div>
     </div>
 </nav>
 
@@ -62,131 +62,132 @@
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 barralat">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white"style="height: 435px;">
-                    <a href="/"
-            class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <span class="fs-5 d-none d-sm-inline" th:text="#{accounts.bank}"></span>
-            </a>
+                <a href="/"
+                   class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline" th:text="#{accounts.bank}"></span>
+                </a>
 
 
 
 
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="/accounts.html" class="nav-link active">
-                        <i class="bi bi-inboxes" th:text="#{accounts.accounts}"></i>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="/accounts.html" class="nav-link active">
+                            <i class="bi bi-inboxes" th:text="#{accounts.accounts}"></i>
 
-                    </a>
-                </li>
-                <li>
-                    <a href="/cards.html" class="nav-link link-dark">
-                        <i class="bi bi-credit-card" th:text="#{accounts.cards}"></i>
-
-                    </a>
-                </li>
-                <li>
-                    <a href="/transfers.html" class="nav-link link-dark">
-                        <i class="bi bi-box-arrow-right" th:text="#{accounts.transfers}"></i>
-
-                    </a>
-                </li>
-                <li>
-                    <a href="/loan.html" class="nav-link link-dark">
-                        <i class="bi bi-cash" th:text="#{accounts.loan}"></i>
-
-                    </a>
-                </li>
-                <li>
-                    <a href="/invest-application.html" class="nav-link link-dark">
-                        <i class="bi bi-cash" th:text="#{accounts.investments}"></i>
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-    </div>
-    <div class="col py-3" id="app">
-        <div class="col">
-            <div class="row">
-                <div class="col">
-                    <h1 class="display-1">{{ clientInfo.firstName }} {{ clientInfo.lastName }}</h1>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <h2 class="display-6 subtitle" th:text="#{accounts.accounts}"></h2>
-                    <button v-if="clientInfo.accounts != null && clientInfo.accounts.length < 3" v-on:click="create" id="create" class="btn btn-sm btn-outline-success" th:text="#{accounts.create}"></button>
-                </div>
-            </div>
-            <div class="row">
-
-
-                <div class="row">
-                    <div v-for="account in clientInfo.accounts" class="col-12 col-md-3 mt-2">
-                        <a class="account-link" v-bind:href="'http://localhost:8080/account/'+account.id">
-
-                            <div class="card border-0 account">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ account.number }}</h5>
-                                    <p class="card-text"> {{ formatDate(account.creationDate) }}</p>
-                                    <p class="text-center lead account-balance"> ${{ account.balance }} </p>
-                                </div>
-                            </div>
                         </a>
+                    </li>
+                    <li>
+                        <a href="/cards.html" class="nav-link link-dark">
+                            <i class="bi bi-credit-card" th:text="#{accounts.cards}"></i>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/transfers.html" class="nav-link link-dark">
+                            <i class="bi bi-box-arrow-right" th:text="#{accounts.transfers}"></i>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/loan.html" class="nav-link link-dark">
+                            <i class="bi bi-cash" th:text="#{accounts.loan}"></i>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/invest-application.html" class="nav-link link-dark">
+                            <i class="bi bi-cash" th:text="#{accounts.investments}"></i>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col py-3" id="app">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="display-1">{{ clientInfo.firstName }} {{ clientInfo.lastName }}</h1>
                     </div>
                 </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <h2 class="display-6 subtitle" th:text="#{accounts.accounts}"></h2>
+                        <button v-if="clientInfo.accounts != null && clientInfo.accounts.length < 3" v-on:click="create" id="create" class="btn btn-primary" th:text="#{accounts.create}"></button>
+                    </div>
+                </div>
+                <div class="row">
 
- </div>
- </div>
- </div>
- </div>
+
+                    <div class="row">
+                        <div v-for="account in clientInfo.accounts" class="col-12 col-md-3 mt-2">
+                            <a class="account-link" v-bind:href="'http://localhost:8080/account/'+account.id">
+
+                                <div class="card border-0 account">
+                                    <div class="card-body colores">
+                                        <h5 class="card-title">{{ account.number }}</h5>
+                                        <p class="card-text"> {{ formatDate(account.creationDate) }}</p>
+                                        <p class="text-center lead account-balance"> ${{ account.balance }} </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
 
 
- <footer id="Footer" class="text-center text-white py-2  pt-5">
+<footer id="Footer" class="text-center text-white py-2  pt-5">
 
- <div class="container">
+    <div class="container">
 
- <div class="row">
-     <div class="col-12 col-sm-6">
-         <a class="navbar-brand" href="#">
-             <img src="/web/img/EYes2.png" alt="icono" width="45" height="">
-         </a>
-     </div>
-     <div class="col-12 col-sm-6">
-         <a class="active m-2" aria-current="page" href="#" th:text="#{accounts.about2}">Conocenos</a>
-         <a class="active m-2" href="#" th:text="#{accounts.norm}">Normas</a>
-         <a class="active m-2" href="#" th:text="#{accounts.filial}">Filiales</a>
-         <a class="active m-2" href="#" th:text="#{accounts.rel}">Sitios Relacionados</a>
-         <a class="active m-2" href="#Contacto" th:text="#{accounts.find}">Encuéntranos</a>
-     </div>
- </div>
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <a class="navbar-brand" href="#">
+                    <img src="/web/img/EYes2.png" alt="icono" width="130" height="">
+                </a>
+            </div>
+            <div class="col-12 col-sm-6">
+                <a class="active m-2" aria-current="page" href="#" th:text="#{accounts.about2}"></a>
+                <a class="active m-2" href="#" th:text="#{accounts.norm}"></a>
+                <a class="active m-2" href="#" th:text="#{accounts.filial}"></a>
+                <a class="active m-2" href="#" th:text="#{accounts.rel}"></a>
+                <a class="active m-2" href="#Contacto" th:text="#{accounts.find}"></a>
+            </div>
+        </div>
 
 
- <div class="row">
-     <div class="col-12 col-sm-6">
-         <p>We see beyond</p>
-     </div>
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <p>We see beyond</p>
+            </div>
 
-     <div class="col-12 col-sm-6">
-         <a target="_blank" href="https://github.com/Namarat/EYes">
-             <i class="fab fa-github-square fa-3x mx-2"></i>
-         </a>
-         <a target="_blank" href="https://www.linkedin.com/in/eyes-consultora-188150235/">
-             <i class="fab fa-linkedin fa-3x mx-2"></i>
-         </a>
-         <a target="_blank" href="https://twitter.com/ConsultoriaEyes">
-             <i class="fab fa-twitter-square fa-3x mx-2"></i>
-         </a>
-         <a target="_blank" href="https://www.facebook.com/EYES-102500485743871">
-             <i class="fab fa-facebook-square fa-3x mx-2"></i>
-         </a>
-     </div>
- </div>
+            <div class="col-12 col-sm-6">
+                <a target="_blank" href="https://github.com/Namarat/EYes">
+                    <i class="fab fa-github-square fa-3x mx-2"></i>
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/in/eyes-consultora-188150235/">
+                    <i class="fab fa-linkedin fa-3x mx-2"></i>
+                </a>
+                <a target="_blank" href="https://twitter.com/ConsultoriaEyes">
+                    <i class="fab fa-twitter-square fa-3x mx-2"></i>
+                </a>
+                <a target="_blank" href="https://www.facebook.com/EYES-102500485743871">
+                    <i class="fab fa-facebook-square fa-3x mx-2"></i>
+                </a>
+            </div>
+        </div>
 
- </div>
- </footer>
+    </div>
+</footer>
+
 
 
  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>

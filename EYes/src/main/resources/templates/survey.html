@@ -107,8 +107,8 @@
         </div>
         <section class="con">
             <div>
-            <p th:value="${client}"></p>
-            <h1 th:text="${client.getFirstName()} +' '+ ${client.getLastName()}" ></h1>
+                <p th:value="${client}"></p>
+                <h1 th:text="${client.getFirstName()} +' '+ ${client.getLastName()}" ></h1>
             </div>
 
             <script th:inline="javascript">
@@ -117,7 +117,7 @@
 
             <div>
                 <!---------surveyjs----------------->
-                    <div id="surveyContainer"></div>
+                <div id="surveyContainer"></div>
                 <!---------surveyjs----------------->
             </div>
         </section>
@@ -130,7 +130,7 @@
 </div>
 </div>
 
-
+<!---
 <footer id="Footer" class="text-center text-white py-2  pt-5">
 
     <div class="container">
@@ -138,7 +138,7 @@
         <div class="row">
             <div class="col-12 col-sm-6">
                 <a class="navbar-brand" href="#">
-                    <img src="/web/img/EYes2.png" alt="icono" width="45" height="">
+                    <img src="/web/img/EYes2.png" alt="icono" width="130" height="">
                 </a>
             </div>
             <div class="col-12 col-sm-6">
@@ -173,6 +173,8 @@
         </div>
     </div>
 </footer>
+
+-->
 <!---------surveyjs----------------->
 
 <link href="https://unpkg.com/survey-jquery@1.9.20/modern.css" type="text/css" rel="stylesheet"/>

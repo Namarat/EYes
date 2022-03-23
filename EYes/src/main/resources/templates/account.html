@@ -121,7 +121,7 @@
 
                         <div class="row mt-3">
                             <div class="col">
-                                <h2 class="display-6 account" th:value="${account}">Account Number: [[${account.getNumber()}]]  - Balance: [[${account.getBalance()}]]</h2>
+                                <h2 class="display-6 account colores" th:value="${account}">Account Number: [[${account.getNumber()}]]  - Balance: [[${account.getBalance()}]]</h2>
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -137,6 +137,9 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+
+                                   <!-- <tr th:each="transaction : ${transactions}" id="color_tarjeta"  class="" th:classappend="${'CREDIT' == transaction.getType()} ? 'debit-transaction' : 'credit-transaction' "  >-->
+
                                     <p th:value="${transactions}" ></p>
                                     <tr th:each="transaction : ${transactions}" class="col-12 col-md-3 mt-2" >
                                         <td th:text="${transaction.getId()}"></td><!--{{ transaction.id }}-->

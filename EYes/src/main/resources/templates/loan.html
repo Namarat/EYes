@@ -20,11 +20,12 @@
     <title th:text="#{loan.title}"></title>
 </head>
 
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="web/img/Eye.png" alt="icono" width="45" height="">
+            <img src="/web/img/Eye.png" alt="icono" width="60" height="45">
         </a>
         <a class="navbar-brand" href="#" th:text="#{loan.title2}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -62,82 +63,82 @@
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 barralat">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white"style="height: 435px;">
-                    <a href="/"
-            class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <span class="fs-5 d-none d-sm-inline" th:text="#{loan.bank}"></span>
-                    </a>
+                <a href="/"
+                   class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline" th:text="#{loan.bank}"></span>
+                </a>
 
 
 
 
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="/accounts.html" class="nav-link link-dark">
-                        <i class="bi bi-inboxes" th:text="#{loan.accounts}"></i>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="/accounts.html" class="nav-link link-dark">
+                            <i class="bi bi-inboxes" th:text="#{loan.accounts}"></i>
 
-                    </a>
-                </li>
-                <li>
-                    <a href="/cards.html" class="nav-link link-dark">
-                        <i class="bi bi-credit-card" th:text="#{loan.cards}"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cards.html" class="nav-link link-dark">
+                            <i class="bi bi-credit-card" th:text="#{loan.cards}"></i>
 
-                    </a>
-                </li>
-                <li>
-                    <a href="/transfers.html" class="nav-link link-dark">
-                        <i class="bi bi-box-arrow-right" th:text="#{loan.transfers}"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/transfers.html" class="nav-link link-dark">
+                            <i class="bi bi-box-arrow-right" th:text="#{loan.transfers}"></i>
 
-                    </a>
-                </li>
-                <li>
-                    <a href="/loan.html" class="nav-link active">
-                        <i class="bi bi-cash" th:text="#{loan.loan}"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/loan.html" class="nav-link active">
+                            <i class="bi bi-cash" th:text="#{loan.loan}"></i>
 
-                    </a>
-                </li>
-                <li>
-                    <a href="/invest-application.html" class="nav-link link-dark">
-                        <i class="bi bi-cash" th:text="#{loan.investments}"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/invest-application.html" class="nav-link link-dark">
+                            <i class="bi bi-cash" th:text="#{loan.investments}"></i>
 
-                    </a>
-                </li>
-            </ul>
+                        </a>
+                    </li>
+                </ul>
 
+            </div>
         </div>
-    </div>
-    <div class="col py-3" id="app">
-        <div class="col">
-            <div class="row">
-                <div class="col">
-                    <h1 class="display-1">{{ clientInfo.firstName }} {{ clientInfo.lastName }}</h1>
+        <div class="col py-3" id="app">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="display-1">{{ clientInfo.firstName }} {{ clientInfo.lastName }}</h1>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mt-3">
-                <div class="col">
-                    <h2 class="display-6" th:text="#{loan.loan}"></h2>
+                <div class="row mt-3">
+                    <div class="col">
+                        <h2 class="display-6" th:text="#{loan.loan}"></h2>
 
-                    <span class="small" v-if="clientInfo.loan != null && clientInfo.loans.length <= 0" th:text="#{loan.noloans}"></span>
-                    <a class="btn btn-primary mt-3" href="/loan-application.html" role="button" th:text="#{loan.needloan}"></a>
+                        <span class="small" v-if="clientInfo.loan != null && clientInfo.loans.length <= 0" th:text="#{loan.noloans}"></span>
+                        <a class="btn btn-primary mt-3" href="/loan-application.html" role="button" th:text="#{loan.needloan}"></a>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div v-for="loan in clientInfo.loans" class="col-12 col-md-3 mt-2">
-                    <div class="card border-0 loan">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ loan.name }}</h5>
-                            <p class="card-text" th:text="#{loan.payments}"></p>
-                            <p class="text-center">{{ loan.payments}}</p>
-                            <p class="card-text" th:text="#{loan.amount}"></p>
-                            <p class="text-center lead account-balance"> ${{ loan.amount }} </p>
+                <div class="row">
+                    <div v-for="loan in clientInfo.loans" class="col-12 col-md-3 mt-2">
+                        <div class="card border-0 account">
+                            <div class="card-body colores">
+                                <h5 class="card-title">{{ loan.name }}</h5>
+                                <p class="card-text" th:text="#{loan.payments}"></p>
+                                <p class="text-center">{{ loan.payments}}</p>
+                                <p class="card-text" th:text="#{loan.amount}"></p>
+                                <p class="text-center lead account-balance"> ${{ loan.amount }} </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-</div>
 </div>
 <footer id="Footer" class="text-center text-white py-2  pt-5">
 
@@ -146,7 +147,7 @@
         <div class="row">
             <div class="col-12 col-sm-6">
                 <a class="navbar-brand" href="#">
-                    <img src="/web/img/EYes2.png" alt="icono" width="45" height="">
+                    <img src="/web/img/EYes2.png" alt="icono" width="130" height="">
                 </a>
             </div>
             <div class="col-12 col-sm-6">
@@ -181,7 +182,6 @@
         </div>
     </div>
 </footer>
-
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

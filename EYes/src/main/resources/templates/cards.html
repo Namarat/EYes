@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="/web/img/Eye.png" alt="icono" width="45" height="">
+            <img src="/web/img/Eye.png" alt="icono" width="60" height="45">
         </a>
         <a class="navbar-brand" href="#" th:text="#{cards.title2}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -106,13 +106,13 @@
 
             <div class="row">
                 <div class="col">
-                    <h1 class="display-1">{{ clientInfo.firstName }} {{ clientInfo.lastName }} {{ clientInfo.email }}</h1>
+                    <h1 class="display-1">{{ clientInfo.firstName }} {{ clientInfo.lastName }} </h1>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col">
                     <h2 class="display-6 subtitle" th:text="#{cards.debitCards}"> </h2>
-                    <a v-if="clientInfo.cards != null && clientInfo.cards.length < 6" href="create-cards.html" id="create" class="btn btn-sm btn-outline-success" th:text="#{cards.create}"></a>
+                    <a v-if="clientInfo.cards != null && clientInfo.cards.length < 6" href="create-cards.html" id="create" class="btn btn-primary" th:text="#{cards.create}"></a>
                     <div v-if="debitCards.length <= 0"><span class="small" th:text="#{cards.noCards}"></span></div>
                 </div>
             </div>
@@ -123,7 +123,7 @@
                             <span class="plastic-card__label">{{ card.type}} {{ card.color }}</span>
                         </div>
                         <img class="plastic-card__front-logo plastic-card__logo"
-                             src="/web/img/logo_card.png">
+                             src="/web/img/favicon-32x32.png" width="50">
                         <p class="plastic-card_numer">{{ card.number}}</p>
                         <div class="plastic-card__space-60">
                             <span class="plastic-card__label" th:text="#{cards.cardHolder}">Titular</span>
@@ -145,7 +145,7 @@
                                 <span class="plastic-card__label">{{ card.type}} {{ card.color }}</span>
                             </div>
                             <img class="plastic-card__back-logo plastic-card__logo"
-                                 src="/web/img/logo_card.png">
+                                 src="/web/img/favicon-32x32.png" width="50">
                         </div>
                     </div>
                 </div>
@@ -163,7 +163,7 @@
                             <span class="plastic-card__label">{{ card.type}} {{ card.color }}</span>
                         </div>
                         <img class="plastic-card__front-logo plastic-card__logo"
-                             src="/web/img/logo_card.png">
+                             src="/web/img/favicon-32x32.png" width="50">
                         <p class="plastic-card_numer">{{ card.number}}</p>
                         <div class="plastic-card__space-60">
                             <span class="plastic-card__label" th:text="#{cards.cardHolder}"></span>
@@ -185,7 +185,7 @@
                                 <span class="plastic-card__label">{{ card.type}} {{ card.color }}</span>
                             </div>
                             <img class="plastic-card__back-logo plastic-card__logo"
-                                 src="/web/img/logo_card.png">
+                                 src="/web/img/favicon-32x32.png" width="50">
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
         <div class="row">
             <div class="col-12 col-sm-6">
                 <a class="navbar-brand" href="#">
-                    <img src="web/img/EYes2.png" alt="icono" width="45" height="">
+                    <img src="web/img/EYes2.png" alt="icono" width="130" height="">
                 </a>
             </div>
             <div class="col-12 col-sm-6">

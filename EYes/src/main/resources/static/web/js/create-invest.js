@@ -78,7 +78,7 @@ var app = new Vue({
         */
         signOut: function(){
             axios.post('/api/logout')
-                .then(response => window.location.href="/web/index.html")
+                .then(response => window.location.href="/index.html")
                 .catch(() =>{
                     this.errorMsg = "Sign out failed"
                     this.errorToats.show();

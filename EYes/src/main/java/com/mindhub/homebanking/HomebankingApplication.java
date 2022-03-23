@@ -4,7 +4,7 @@ package com.mindhub.homebanking;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/*
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.context.request.RequestContextListener;
 import com.mindhub.homebanking.models.*;
@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
-*/
+
 
 @SpringBootApplication
 public class HomebankingApplication { //implements ApplicationRunner "probando metodo run"
@@ -24,8 +24,8 @@ public class HomebankingApplication { //implements ApplicationRunner "probando m
 	public static void main(String[] args) {
 		SpringApplication.run(HomebankingApplication.class, args);
 	}
-}
 
+}
 
 /*
 	@Bean
@@ -35,26 +35,28 @@ public class HomebankingApplication { //implements ApplicationRunner "probando m
 */
 
 
+/*
 
-	/*
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
 	@Bean
-	public CommandLineRunner initData(ClientRepository clientRepository,InvestRepository investRepository, ClientInvestRepository clientInvestRepository) {//ClientRepository clientRepository, AccountRepository accountRepository,TransactionRepository transactionRepository, LoanRepository loanRepository,ClientLoanRepository clientLoanRepository, CardRepository cardRepository
+	public CommandLineRunner initData(ClientRepository clientRepository,InvestRepository investRepository, ClientInvestRepository clientInvestRepository,
+									   AccountRepository accountRepository,TransactionRepository transactionRepository,
+									  LoanRepository loanRepository,ClientLoanRepository clientLoanRepository, CardRepository cardRepository) {//ClientRepository clientRepository, AccountRepository accountRepository,TransactionRepository transactionRepository, LoanRepository loanRepository,ClientLoanRepository clientLoanRepository, CardRepository cardRepository
 		return (args) -> {
 
 			//Agregando nuevos clientres
-			Client client1 =new Client("Juan", "Gutierrez","jgutierrez@mail.com",passwordEncoder.encode("123"));
-			Client client2 = new Client("Julio", "Fuentes","jfuentes@mail.com",passwordEncoder.encode("123"));
-			Client client3 = new Client("Josefina", "Toledo","jtoledo@mail.com",passwordEncoder.encode("123"));
+			Client client1 =new Client("Juan", "Gutierrez","jgutierrez@mail.com",passwordEncoder.encode("123"),PerfilInversionType.CONSERVADOR);
+			Client client2 = new Client("Julio", "Fuentes","jfuentes@mail.com",passwordEncoder.encode("123"),PerfilInversionType.CONSERVADOR);
+			Client client3 = new Client("Josefina", "Toledo","jtoledo@mail.com",passwordEncoder.encode("123"),PerfilInversionType.CONSERVADOR);
 
-			clientRepository.save(client1);
-			clientRepository.save(client2);
-			clientRepository.save(client3);
-	/*
-			Client client4 = new Client("Nicolas", "Nahuelvil","nnahuelvil@mail.com",passwordEncoder.encode("123"));
-			Client client5 = new Client("Constanza", "Hesse","chesse@mail.com",passwordEncoder.encode("123"));
+		//	clientRepository.save(client1);
+		//	clientRepository.save(client2);
+		//	clientRepository.save(client3);
+
+			Client client4 = new Client("Nicolas", "Nahuelvil","nnahuelvil@mail.com",passwordEncoder.encode("123"),PerfilInversionType.CONSERVADOR);
+			Client client5 = new Client("Constanza", "Hesse","chesse@mail.com",passwordEncoder.encode("123"),PerfilInversionType.CONSERVADOR);
 
 			//Guardando clientes
 			clientRepository.save(client1);
@@ -184,13 +186,13 @@ public class HomebankingApplication { //implements ApplicationRunner "probando m
 			cardRepository.save(card2);
 			cardRepository.save(card3);
 
-*/
+
 
 
 			// Agregar productos inversion
 
 
-			/*
+
 			Invest invest1 = new Invest("Fondo Riesgo 1", 3, RiskType.CONSERVADOR, Arrays.asList(1, 2, 3, 4) );
 			Invest invest2 = new Invest("Fondo Riesgo 2", 3, RiskType.AUDAZ,Arrays.asList(1, 2, 3, 4) );
 			Invest invest3 = new Invest("Fondo Riesgo 3", 5, RiskType.CRECIMIENTO,Arrays.asList(1, 2, 3, 4) );
@@ -235,6 +237,7 @@ public class HomebankingApplication { //implements ApplicationRunner "probando m
 	}
 
 }
+*/
 /*
 //Prueba metodo run
 

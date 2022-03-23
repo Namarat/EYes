@@ -17,7 +17,7 @@
     height: 570px;
 }
 
-@media only screen and (max-width: 480px){ 
+@media only screen and (max-width: 480px){
     .carr img{
         width: 100%;
         height: auto;
@@ -47,7 +47,7 @@
 hr{
     border: none;
     height: 3px !important;
-    background-color: #FFE600; 
+    background-color: #FFE600;
 }
 
 .iconos{

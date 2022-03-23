@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="assets/img/Eyes6.png" alt="icono" width="45" height="">
+            <img src="/web/img/Eye.png" alt="icono" width="60" height="45">
         </a>
         <a class="navbar-brand" href="#" th:text="#{view.invest.title2}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -105,37 +105,37 @@
 
             </div>
         </div>
-            <section>
-                    <div class="col py-3" id="app">
+        <section>
+            <div class="col py-3" id="app">
+                <div class="col">
+                    <div class="row">
                         <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <h1 class="display-1">{{ clientInfo.firstName }} {{ clientInfo.lastName }}</h1>
-                                </div>
-                            </div>
+                            <h1 class="display-1">{{ clientInfo.firstName }} {{ clientInfo.lastName }}</h1>
+                        </div>
+                    </div>
 
-                            <div class="row mt-3">
-                                <div class="col">
-                                    <h2 class="display-6" th:text="#{view.invest.investments}"></h2>
-                                    <span class="small" v-if="clientInfo.invest != null && clientInfo.invests.length <= 0" th:text="#{view.invest.noinvestments}"></span>
-                                    <a class="btn btn-primary mt-3" href="invest-aplication" role="button" th:text="#{view.invest.solitud}"></a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div v-for="invest in clientInfo.invests" class="col-12 col-md-3 mt-2">
-                                    <div class="card border-0 loan">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ invest.name }}</h5>
-                                            <p class="card-text" > Rentabilidad: {{ invest.rentabilidad}}% anual</p>
-                                            <p class="card-text" > Plazos: {{ invest.plazos}} años</p>
-                                            <p class="text-center lead account-balance">Monto: ${{ invest.amount }} </p>
-                                        </div>
-                                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <h2 class="display-6" th:text="#{view.invest.investments}"></h2>
+                            <span class="small" v-if="clientInfo.invest != null && clientInfo.invests.length <= 0" th:text="#{view.invest.noinvestments}"></span>
+                            <a class="btn btn-primary mt-3" href="create-invest.html" role="button" th:text="#{view.invest.solitud}"></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div v-for="invest in clientInfo.invests" class="col-12 col-md-3 mt-2">
+                            <div class="card border-0 account colores">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ invest.name }}</h5>
+                                    <p class="card-text" > Rentabilidad: {{ invest.rentabilidad}}% anual</p>
+                                    <p class="card-text" > Plazos: {{ invest.plazos}} años</p>
+                                    <p class="text-center lead account-balance">Monto: ${{ invest.amount }} </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-            </section>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
 
@@ -147,7 +147,7 @@
         <div class="row">
             <div class="col-12 col-sm-6">
                 <a class="navbar-brand" href="#">
-                    <img src="/web/img/EYes5.png" alt="icono" width="45" height="">
+                    <img src="/web/img/EYes5.png" alt="icono" width="130" height="">
                 </a>
             </div>
             <div class="col-12 col-sm-6">

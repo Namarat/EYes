@@ -92,8 +92,7 @@ public class LoanController {
 
         //Crear transaccion con la descripcion loan approved
         transactionRepository.save(new Transaction(TransactionType.CREDIT, loanCurrent,
-                "Client: " + client.getFirstName() + " " + client.getLastName() +" - "
-                        + "loan approved", LocalDateTime.now(), accountDest));
+                "Prestamo: "+ loan.getName()+ "loan approved", LocalDateTime.now(), accountDest));
 
         //Actualizar el balance mas el nuevo prestamo
         accountDest.setBalance(accountDest.getBalance()+loanApplicationDTO.getAmount());
