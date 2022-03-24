@@ -132,8 +132,8 @@
                                     <tr>
                                         <th th:text="#{account.id}"></th>
                                         <th th:text="#{account.description}"></th>
-                                        <th th:text="#{account.date}">Date</th>
-                                        <th th:text="#{account.amount}">Amount</th>
+                                        <th th:text="#{account.date}"></th>
+                                        <th th:text="#{account.amount}"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -144,7 +144,7 @@
                                     <tr th:each="transaction : ${transactions}" class="col-12 col-md-3 mt-2" >
                                         <td th:text="${transaction.getId()}"></td><!--{{ transaction.id }}-->
                                         <td th:text="${transaction.getDescription()}"></td><!--{{ transaction.description }}-->
-                                        <td th:text="${transaction.getDate()}"></td><!--{{ formatDate(transaction.date) }}-->
+                                        <td th:text="${#temporals.format(transaction.getDate(),'dd-MM-yyyy')}"></td>
                                         <td th:text="${transaction.getAmount()}"></td><!--{{ transaction.amount }}-->
                                     </tr>
                                     </tbody>
